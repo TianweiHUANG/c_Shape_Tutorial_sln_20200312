@@ -30,8 +30,8 @@ namespace c_Shape_encapsulation_20200312
         }
     }
 
-    //class Program
-    class ExecuteRectangle
+    class Program
+    //class ExecuteRectangle
     {
         static void Main(string[] args)
         {
