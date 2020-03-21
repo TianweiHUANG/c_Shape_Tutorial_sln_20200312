@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_encapsulation_20200
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_method_20200320", "c_Shape_method_20200320\c_Shape_method_20200320.csproj", "{FE073B6D-6AF9-49C5-AEB8-2192967D4FAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Socket_Client_TEST_20200321", "TCP_Socket_Client_TEST_20200321\TCP_Socket_Client_TEST_20200321.csproj", "{DDB43E8A-3F8D-4132-9D3D-D0DA88EA78FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Socket_Server_TEST_20200321", "TCP_Socket_Server_TEST_20200321\TCP_Socket_Server_TEST_20200321.csproj", "{BA7262EA-7502-4229-A176-6FAD344A54C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{FE073B6D-6AF9-49C5-AEB8-2192967D4FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE073B6D-6AF9-49C5-AEB8-2192967D4FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE073B6D-6AF9-49C5-AEB8-2192967D4FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB43E8A-3F8D-4132-9D3D-D0DA88EA78FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB43E8A-3F8D-4132-9D3D-D0DA88EA78FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB43E8A-3F8D-4132-9D3D-D0DA88EA78FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB43E8A-3F8D-4132-9D3D-D0DA88EA78FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7262EA-7502-4229-A176-6FAD344A54C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7262EA-7502-4229-A176-6FAD344A54C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7262EA-7502-4229-A176-6FAD344A54C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7262EA-7502-4229-A176-6FAD344A54C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
