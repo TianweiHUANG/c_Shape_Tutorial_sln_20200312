@@ -28,9 +28,7 @@ namespace c_Shape_encapsulation_20200312
             Console.WriteLine("宽度： {0}", width);
             Console.WriteLine("面积： {0}", GetArea());
         }
-    }
-
-    //class Program
+    }   
     class ExecuteRectangle
     {
         static void Main(string[] args)
@@ -40,5 +38,5 @@ namespace c_Shape_encapsulation_20200312
             r.Display();
             Console.ReadLine();
         }
-    }
+    } 
 }
