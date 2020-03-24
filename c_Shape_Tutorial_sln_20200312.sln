@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Socket_Server_TEST_2020
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_Nullable_20200323", "c_Shape_Nullable_20200323\c_Shape_Nullable_20200323.csproj", "{6A4F6A2B-42BE-41D4-9B3D-DF242EF1A6A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_class_20200327", "c_Shape_class_20200327\c_Shape_class_20200327.csproj", "{3EC24022-6E15-4273-B10E-97D13124D3BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6A4F6A2B-42BE-41D4-9B3D-DF242EF1A6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A4F6A2B-42BE-41D4-9B3D-DF242EF1A6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A4F6A2B-42BE-41D4-9B3D-DF242EF1A6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

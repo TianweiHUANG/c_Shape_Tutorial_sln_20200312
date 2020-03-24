@@ -18,13 +18,14 @@ namespace c_Shape_Nullable_20200320
             ------ int? ii; //默认值null
             */
             int? num1 = null;
-            int? num2 = 45;
+            int num2 = 45;
             double? num3 = new double?();
             double? num4 = 3.14157;
             bool? boolval = new bool?();
 
             Console.WriteLine("可空的类型值： {0}, {1}, {2}, {3}", num1, num2, num3, num4);
             Console.WriteLine("可空的布尔值： {0}", boolval);
+            Console.ReadLine();
 
             //------ ?? : 双问号用于判断一个变量在为 null 时返回一个指定的值。
             double? num10 = null;
