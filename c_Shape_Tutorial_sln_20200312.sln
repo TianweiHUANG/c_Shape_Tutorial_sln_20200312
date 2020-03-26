@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_Nullable_20200323",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_class_20200327", "c_Shape_class_20200327\c_Shape_class_20200327.csproj", "{3EC24022-6E15-4273-B10E-97D13124D3BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{67255231-8AAB-48A5-A4A2-440551DFFD1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{300AB3BA-5DC7-4365-8B4D-38EFF772B361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67255231-8AAB-48A5-A4A2-440551DFFD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67255231-8AAB-48A5-A4A2-440551DFFD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67255231-8AAB-48A5-A4A2-440551DFFD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67255231-8AAB-48A5-A4A2-440551DFFD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300AB3BA-5DC7-4365-8B4D-38EFF772B361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300AB3BA-5DC7-4365-8B4D-38EFF772B361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300AB3BA-5DC7-4365-8B4D-38EFF772B361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300AB3BA-5DC7-4365-8B4D-38EFF772B361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
