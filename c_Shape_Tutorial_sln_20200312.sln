@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_Nullable_20200323",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Shape_class_20200327", "c_Shape_class_20200327\c_Shape_class_20200327.csproj", "{3EC24022-6E15-4273-B10E-97D13124D3BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp_TEST_20200325", "WpfApp_TEST_20200325\WpfApp_TEST_20200325.csproj", "{CDEF0B4A-650F-4939-83F3-E883DC12D506}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC24022-6E15-4273-B10E-97D13124D3BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDEF0B4A-650F-4939-83F3-E883DC12D506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDEF0B4A-650F-4939-83F3-E883DC12D506}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDEF0B4A-650F-4939-83F3-E883DC12D506}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDEF0B4A-650F-4939-83F3-E883DC12D506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
