@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.picCamera = new System.Windows.Forms.PictureBox();
-            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnOpenCamera = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCamera)).BeginInit();
             this.SuspendLayout();
@@ -42,15 +42,15 @@
             this.picCamera.TabIndex = 0;
             this.picCamera.TabStop = false;
             // 
-            // btnOpen
+            // btnOpenCamera
             // 
-            this.btnOpen.Location = new System.Drawing.Point(80, 400);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(80, 40);
-            this.btnOpen.TabIndex = 1;
-            this.btnOpen.Text = "打开摄像头";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnOpenCamera.Location = new System.Drawing.Point(80, 400);
+            this.btnOpenCamera.Name = "btnOpenCamera";
+            this.btnOpenCamera.Size = new System.Drawing.Size(80, 40);
+            this.btnOpenCamera.TabIndex = 1;
+            this.btnOpenCamera.Text = "打开摄像头";
+            this.btnOpenCamera.UseVisualStyleBackColor = true;
+            this.btnOpenCamera.Click += new System.EventHandler(this.btnOpenCamera_Click);
             // 
             // button2
             // 
@@ -67,7 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 462);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.btnOpenCamera);
             this.Controls.Add(this.picCamera);
             this.Name = "Form1";
             this.Text = "OpenCvSharp_WFapp";
@@ -79,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picCamera;
-        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnOpenCamera;
         private System.Windows.Forms.Button button2;
     }
 }

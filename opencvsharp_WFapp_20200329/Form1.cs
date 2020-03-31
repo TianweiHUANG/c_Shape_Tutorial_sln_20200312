@@ -23,20 +23,35 @@ namespace opencvsharp_WFapp_20200329
             InitializeComponent();
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void btnOpenCamera_Click(object sender, EventArgs e)
         {
-            VideoCapture myVideoCapture = new VideoCapture(CaptureDevice.Any);                
-            if (!myVideoCapture.IsOpened())
-            {
-                MessageBox.Show("摄像头开启失败", "故障", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            myVideoCapture.Set(CaptureProperty.FrameWidth, 450);//宽度
-            myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
-            bool isOpenCamera = true;
-            Thread myThread = new Thread(playVideo);
-            myThread.Start();
-            btnOpen.Text = "关闭摄像头";
+            bool isOpenCamera = false;
+            if (!isOpenCamera)
+            {
+                VideoCapture myVideoCapture = new VideoCapture(CaptureDevice.Any);
+                if (!myVideoCapture.IsOpened())
+                {
+                    MessageBox.Show("摄像头开启失败", "故障", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                myVideoCapture.Set(CaptureProperty.FrameWidth, 640);//宽度
+                myVideoCapture.Set(CaptureProperty.FrameHeight, 480);//高度
+                isOpenCamera = true;
+                Thread myThread = new Thread(playVideo);
+                myThread.Start();
+                btnOpenCamera.Text = "关闭摄像头";
+            }
+            else
+            {
+                VideoCapture myVideoCapture = new VideoCapture(CaptureDevice.Any);
+                Thread myThread = new Thread(playVideo);
+
+                isOpenCamera = false;
+                myThread.Abort();
+                myVideoCapture.Release();
+                btnOpenCamera.Text = "打开摄像头";
+            }
+          
         }
 
         private void playVideo()
