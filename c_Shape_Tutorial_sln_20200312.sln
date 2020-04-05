@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "opencvsharp_WFapp_20200329", "opencvsharp_WFapp_20200329\opencvsharp_WFapp_20200329.csproj", "{B7D9127D-5128-4D1E-8816-677957117BB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSapp_S7NET", "CSapp_S7net\CSapp_S7NET.csproj", "{BA05ACD6-F86E-4166-AF64-568B8F953229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFapp_S7NET", "WFapp_S7NET\WFapp_S7NET.csproj", "{CEC71BE7-B4CE-4D89-A9BB-C5DA2DB49EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{B7D9127D-5128-4D1E-8816-677957117BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D9127D-5128-4D1E-8816-677957117BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D9127D-5128-4D1E-8816-677957117BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA05ACD6-F86E-4166-AF64-568B8F953229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA05ACD6-F86E-4166-AF64-568B8F953229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA05ACD6-F86E-4166-AF64-568B8F953229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA05ACD6-F86E-4166-AF64-568B8F953229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC71BE7-B4CE-4D89-A9BB-C5DA2DB49EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC71BE7-B4CE-4D89-A9BB-C5DA2DB49EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC71BE7-B4CE-4D89-A9BB-C5DA2DB49EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC71BE7-B4CE-4D89-A9BB-C5DA2DB49EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
