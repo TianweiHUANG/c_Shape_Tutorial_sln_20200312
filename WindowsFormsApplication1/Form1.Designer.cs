@@ -34,9 +34,10 @@
             // 
             // btnClickThis
             // 
-            this.btnClickThis.Location = new System.Drawing.Point(86, 41);
+            this.btnClickThis.Location = new System.Drawing.Point(64, 33);
+            this.btnClickThis.Margin = new System.Windows.Forms.Padding(2);
             this.btnClickThis.Name = "btnClickThis";
-            this.btnClickThis.Size = new System.Drawing.Size(113, 47);
+            this.btnClickThis.Size = new System.Drawing.Size(85, 38);
             this.btnClickThis.TabIndex = 0;
             this.btnClickThis.Text = "ClickThis";
             this.btnClickThis.UseVisualStyleBackColor = true;
@@ -45,20 +46,21 @@
             // lblHelloWorld
             // 
             this.lblHelloWorld.AutoSize = true;
-            this.lblHelloWorld.Location = new System.Drawing.Point(83, 125);
+            this.lblHelloWorld.Location = new System.Drawing.Point(62, 100);
+            this.lblHelloWorld.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHelloWorld.Name = "lblHelloWorld";
-            this.lblHelloWorld.Size = new System.Drawing.Size(55, 15);
+            this.lblHelloWorld.Size = new System.Drawing.Size(41, 12);
             this.lblHelloWorld.TabIndex = 1;
             this.lblHelloWorld.Text = "label1";
-            this.lblHelloWorld.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(212, 202);
             this.Controls.Add(this.lblHelloWorld);
             this.Controls.Add(this.btnClickThis);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

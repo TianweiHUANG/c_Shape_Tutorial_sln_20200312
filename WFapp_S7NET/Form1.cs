@@ -134,6 +134,8 @@ namespace WFapp_S7NET
                 MessageBox.Show(this, ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        //------------------ Connection ------------------// 
+        //--------------Read/Write M Menory --------------//
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -214,7 +216,5 @@ namespace WFapp_S7NET
         {
 
         }
-        //------------------ Connection ------------------// 
-        //--------------Read/Write M Menory --------------//
     }
 }

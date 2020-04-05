@@ -16,10 +16,6 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnClickThis_Click(object sender, EventArgs e)
         {
             lblHelloWorld.Text = "Hello World!";
