@@ -48,7 +48,7 @@
             this.btnOpenCamera.Name = "btnOpenCamera";
             this.btnOpenCamera.Size = new System.Drawing.Size(85, 40);
             this.btnOpenCamera.TabIndex = 1;
-            this.btnOpenCamera.Text = "button1";
+            this.btnOpenCamera.Text = "OpenCamera";
             this.btnOpenCamera.UseVisualStyleBackColor = true;
             this.btnOpenCamera.Click += new System.EventHandler(this.btnOpenCamera_Click);
             // 
