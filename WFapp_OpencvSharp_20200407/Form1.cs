@@ -30,28 +30,40 @@ namespace WFapp_OpencvSharp_20200407
 
         private void btnOpenCamera_Click(object sender, EventArgs e)
         {
-            myVideoCapture = new VideoCapture(CaptureDevice.Any);                
-            if (!myVideoCapture.IsOpened())
-              {
-                MessageBox.Show("摄像头开启失败", "故障", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-              }
-            myVideoCapture.Set(CaptureProperty.FrameWidth, 450);//宽度
-            myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
-            isOpenCamera = true;
-            myThread = new Thread(PlayCamera);
-            myThread.Start();
-            btnOpenCamera.Text = "CloseCamera";
+            if (!isOpenCamera)
+            {
+                myVideoCapture = new VideoCapture(CaptureDevice.Any);
+                if (!myVideoCapture.IsOpened())
+                {
+                    MessageBox.Show("摄像头开启失败", "摄像头故障", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                myVideoCapture.Set(CaptureProperty.FrameWidth, 450);//宽度
+                myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
+                isOpenCamera = true;
+                myThread = new Thread(PlayCamera);
+                myThread.Start();
+                //pictureBox_PlayCamera.Image = null;
+                btnOpenCamera.Text = "CloseCamera";
+            }
+            else
+            {
+                isOpenCamera = false;
+                myThread.Abort();
+                myVideoCapture.Release();
+                btnOpenCamera.Text = "OpenCamera";
+            }           
         }
+
         private void PlayCamera()
         {
-            while (true)
+            while (isOpenCamera)
             {
                 Mat myFrame = new Mat();
                 myVideoCapture.Read(myFrame);
-
                 int sleepTime = (int)Math.Round(1000 / myVideoCapture.Fps);
                 Cv2.WaitKey(sleepTime);
+
                 if (myFrame.Empty())
                 {
                     continue;
@@ -61,13 +73,47 @@ namespace WFapp_OpencvSharp_20200407
                 Mat newFrame = new Mat(myFrame, myRect);
                 if (isFaceDetect)
                 {
-                    //FaceDetect(newFrame);
+                    FaceDetect(newFrame);
                 }
                 else
                 {
-                    pictureBox_PlayCamera.Image = newFrame.ToBitmap();
+                    //pictureBox_PlayCamera.Image = newFrame.ToBitmap();
+                    FaceDetect(newFrame);
                 }
                 myFrame.Release();
+            }
+        }
+
+        private void FaceDetect(Mat src)
+        {
+            Mat grayImage = new Mat();
+            Cv2.CvtColor(src, grayImage, ColorConversionCodes.BGR2GRAY);
+            Cv2.EqualizeHist(grayImage, grayImage);
+
+            CascadeClassifier cascade = new CascadeClassifier(@"haarcascades\haarcascade_frontalface_alt.xml");
+            Rect[] faces = cascade.DetectMultiScale(
+                image: grayImage,
+                scaleFactor: 1.1,
+                minNeighbors: 1,
+                flags: HaarDetectionType.DoRoughSearch | HaarDetectionType.ScaleImage,
+                minSize: new OpenCvSharp.Size(30, 30)
+            );
+            if (faces.Length <= 0) //未识别到人脸
+            {
+                pictureBox_PlayCamera.Image = src.ToBitmap();                
+            }
+            else
+            {
+                Bitmap myBitmap = src.ToBitmap();
+                Graphics g = Graphics.FromImage(myBitmap);
+                Font font = new Font("宋体", 16, GraphicsUnit.Pixel);
+                SolidBrush fontLine = new SolidBrush(Color.Yellow);                
+                foreach (Rect face in faces)
+                {
+                    g.DrawRectangle(new Pen(Color.YellowGreen, 2), face.X, face.Y, face.Width, face.Height);                   
+                }
+                g.Save();
+                pictureBox_PlayCamera.Image = myBitmap;                            
             }
         }
     }
