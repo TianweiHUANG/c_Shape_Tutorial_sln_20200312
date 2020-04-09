@@ -20,6 +20,7 @@ namespace WFapp_OpencvSharp_20200407
     {
         private bool isOpenCamera;
         private bool isFaceDetect;
+        private bool isTakePicture;
         private Thread myThread;
         private VideoCapture myVideoCapture;
 
@@ -32,8 +33,13 @@ namespace WFapp_OpencvSharp_20200407
         {
 
         }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            isOpenCamera = false;
+            isFaceDetect = false;
+            isTakePicture = false;
+
             myThread.Abort();
             myVideoCapture.Release();
         }
@@ -52,7 +58,9 @@ namespace WFapp_OpencvSharp_20200407
                 myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
                 isOpenCamera = true;
                 myThread = new Thread(PlayCamera);
-                myThread.Start();
+                myThread.Start();
+
+                pictureBox_PlayCamera.Image = null;
                 btnOpenCamera.Text = "CloseCamera";
             }
             else
@@ -62,6 +70,15 @@ namespace WFapp_OpencvSharp_20200407
                 myVideoCapture.Release();
                 btnOpenCamera.Text = "OpenCamera";
             }           
+        }
+
+        private void btnTakePicture_Click(object sender, EventArgs e)
+        {
+            isTakePicture = true;
+            //Thread.Sleep(1000);
+            //btnTakePicture.Text = "TakePicture_ok";
+            //Thread.Sleep(1000);
+            //btnTakePicture.Text = "TakePicture_ok";
         }
 
         private void btnOpenFaceDetect_Click(object sender, EventArgs e)
@@ -80,7 +97,7 @@ namespace WFapp_OpencvSharp_20200407
 
         private void PlayCamera()
         {
-            while (true)
+            while (isOpenCamera)
             {
                 Mat myFrame = new Mat();
                 myVideoCapture.Read(myFrame);
@@ -93,14 +110,20 @@ namespace WFapp_OpencvSharp_20200407
                 }
                 Cv2.Flip(myFrame, myFrame, OpenCvSharp.FlipMode.Y);
                 Rect myRect = new Rect(0, 0, 450, 360);
-                Mat newFrame = new Mat(myFrame, myRect);
+                Mat myNewFrame = new Mat(myFrame, myRect);
+                if (isTakePicture)
+                {
+                    Cv2.ImWrite(@"TakePicture_Hub\Pic_" + @DateTime.Now.ToString("yyyyMMddHHmmss") + @".jpg", myNewFrame);
+                    //btnTakePicture.Text = "TakePicture_ok";//线程间操作无效: 从不是创建控件“btnTakePicture”的线程访问它。
+                    isTakePicture=false;
+                }
                 if (isFaceDetect)
                 {
-                    FaceDetect(newFrame);
+                    FaceDetect(myNewFrame);
                 }
                 else
                 {
-                    pictureBox_PlayCamera.Image = newFrame.ToBitmap();
+                    pictureBox_PlayCamera.Image = myNewFrame.ToBitmap();
                 }
                 myFrame.Release();
             }
@@ -140,5 +163,6 @@ namespace WFapp_OpencvSharp_20200407
                 pictureBox_PlayCamera.Image = myBitmap;                            
             }
         }
+
     }
 }

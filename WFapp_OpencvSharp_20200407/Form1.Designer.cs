@@ -31,6 +31,7 @@
             this.pictureBox_PlayCamera = new System.Windows.Forms.PictureBox();
             this.btnOpenCamera = new System.Windows.Forms.Button();
             this.btnOpenFaceDetect = new System.Windows.Forms.Button();
+            this.btnTakePicture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PlayCamera)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             // btnOpenCamera
             // 
-            this.btnOpenCamera.Location = new System.Drawing.Point(78, 384);
+            this.btnOpenCamera.Location = new System.Drawing.Point(48, 384);
             this.btnOpenCamera.Name = "btnOpenCamera";
             this.btnOpenCamera.Size = new System.Drawing.Size(105, 50);
             this.btnOpenCamera.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btnOpenFaceDetect
             // 
-            this.btnOpenFaceDetect.Location = new System.Drawing.Point(303, 384);
+            this.btnOpenFaceDetect.Location = new System.Drawing.Point(333, 384);
             this.btnOpenFaceDetect.Name = "btnOpenFaceDetect";
             this.btnOpenFaceDetect.Size = new System.Drawing.Size(105, 50);
             this.btnOpenFaceDetect.TabIndex = 2;
@@ -62,11 +63,22 @@
             this.btnOpenFaceDetect.UseVisualStyleBackColor = true;
             this.btnOpenFaceDetect.Click += new System.EventHandler(this.btnOpenFaceDetect_Click);
             // 
+            // btnTakePicture
+            // 
+            this.btnTakePicture.Location = new System.Drawing.Point(191, 384);
+            this.btnTakePicture.Name = "btnTakePicture";
+            this.btnTakePicture.Size = new System.Drawing.Size(105, 50);
+            this.btnTakePicture.TabIndex = 3;
+            this.btnTakePicture.Text = "TakePicture";
+            this.btnTakePicture.UseVisualStyleBackColor = true;
+            this.btnTakePicture.Click += new System.EventHandler(this.btnTakePicture_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 462);
+            this.Controls.Add(this.btnTakePicture);
             this.Controls.Add(this.btnOpenFaceDetect);
             this.Controls.Add(this.btnOpenCamera);
             this.Controls.Add(this.pictureBox_PlayCamera);
@@ -84,6 +96,7 @@
         private System.Windows.Forms.PictureBox pictureBox_PlayCamera;
         private System.Windows.Forms.Button btnOpenCamera;
         private System.Windows.Forms.Button btnOpenFaceDetect;
+        private System.Windows.Forms.Button btnTakePicture;
     }
 }
 
