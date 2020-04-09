@@ -8,11 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.Threading;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using OpenCvSharp;
-using OpenCvSharp.Blob;
+//using OpenCvSharp.Blob;
 using OpenCvSharp.Extensions;
-using OpenCvSharp.UserInterface;
+//using OpenCvSharp.UserInterface;
 
 namespace WFapp_OpencvSharp_20200407
 {
@@ -32,18 +32,17 @@ namespace WFapp_OpencvSharp_20200407
         {
             if (!isOpenCamera)
             {
-                myVideoCapture = new VideoCapture(CaptureDevice.Any);
-                if (!myVideoCapture.IsOpened())
-                {
+                myVideoCapture = new VideoCapture(CaptureDevice.Any);                
+                if (!myVideoCapture.IsOpened())
+                {
                     MessageBox.Show("摄像头开启失败", "摄像头故障", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                myVideoCapture.Set(CaptureProperty.FrameWidth, 450);//宽度
-                myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
-                isOpenCamera = true;
+                    return;
+                }
+                myVideoCapture.Set(CaptureProperty.FrameWidth, 450);//宽度
+                myVideoCapture.Set(CaptureProperty.FrameHeight, 360);//高度
+                isOpenCamera = true;
                 myThread = new Thread(PlayCamera);
-                myThread.Start();
-                //pictureBox_PlayCamera.Image = null;
+                myThread.Start();
                 btnOpenCamera.Text = "CloseCamera";
             }
             else
@@ -55,15 +54,29 @@ namespace WFapp_OpencvSharp_20200407
             }           
         }
 
+        private void btnOpenFaceDetect_Click(object sender, EventArgs e)
+        {
+            if (!isFaceDetect)
+            {
+                isFaceDetect = true;
+                btnOpenFaceDetect.Text = "CloseFaceDetect";
+            }
+            else
+            {
+                isFaceDetect = false;
+                btnOpenFaceDetect.Text = "OpenFaceDetect";
+            }
+        }
+
         private void PlayCamera()
         {
-            while (isOpenCamera)
+            while (true)
             {
                 Mat myFrame = new Mat();
                 myVideoCapture.Read(myFrame);
+
                 int sleepTime = (int)Math.Round(1000 / myVideoCapture.Fps);
                 Cv2.WaitKey(sleepTime);
-
                 if (myFrame.Empty())
                 {
                     continue;
@@ -77,8 +90,7 @@ namespace WFapp_OpencvSharp_20200407
                 }
                 else
                 {
-                    //pictureBox_PlayCamera.Image = newFrame.ToBitmap();
-                    FaceDetect(newFrame);
+                    pictureBox_PlayCamera.Image = newFrame.ToBitmap();
                 }
                 myFrame.Release();
             }
@@ -90,8 +102,9 @@ namespace WFapp_OpencvSharp_20200407
             Cv2.CvtColor(src, grayImage, ColorConversionCodes.BGR2GRAY);
             Cv2.EqualizeHist(grayImage, grayImage);
 
-            CascadeClassifier cascade = new CascadeClassifier(@"haarcascades\haarcascade_frontalface_alt.xml");
-            Rect[] faces = cascade.DetectMultiScale(
+            //"haarcascades\haarcascade_frontalface_alt.xml"not found
+            CascadeClassifier cascade = new CascadeClassifier(@"haarcascades\haarcascade_frontalface_alt.xml");
+            Rect[] faces = cascade.DetectMultiScale(
                 image: grayImage,
                 scaleFactor: 1.1,
                 minNeighbors: 1,
