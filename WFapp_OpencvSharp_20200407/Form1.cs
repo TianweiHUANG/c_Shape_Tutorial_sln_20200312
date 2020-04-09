@@ -103,6 +103,7 @@ namespace WFapp_OpencvSharp_20200407
             Cv2.EqualizeHist(grayImage, grayImage);
 
             //"haarcascades\haarcascade_frontalface_alt.xml"not found
+            //github：https://github.com/opencv/opencv/tree/master/data/haarcascades
             CascadeClassifier cascade = new CascadeClassifier(@"haarcascades\haarcascade_frontalface_alt.xml");
             Rect[] faces = cascade.DetectMultiScale(
                 image: grayImage,
