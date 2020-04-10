@@ -74,11 +74,7 @@ namespace WFapp_OpencvSharp_20200407
 
         private void btnTakePicture_Click(object sender, EventArgs e)
         {
-            isTakePicture = true;
-            //Thread.Sleep(1000);
-            //btnTakePicture.Text = "TakePicture_ok";
-            //Thread.Sleep(1000);
-            //btnTakePicture.Text = "TakePicture_ok";
+            isTakePicture = true;         
         }
 
         private void btnOpenFaceDetect_Click(object sender, EventArgs e)
@@ -113,8 +109,7 @@ namespace WFapp_OpencvSharp_20200407
                 Mat myNewFrame = new Mat(myFrame, myRect);
                 if (isTakePicture)
                 {
-                    Cv2.ImWrite(@"TakePicture_Hub\Pic_" + @DateTime.Now.ToString("yyyyMMddHHmmss") + @".jpg", myNewFrame);
-                    //btnTakePicture.Text = "TakePicture_ok";//线程间操作无效: 从不是创建控件“btnTakePicture”的线程访问它。
+                    Cv2.ImWrite(@"TakePicture_Hub\Pic_"+@DateTime.Now.ToString("yyyyMMddHHmmss")+@".jpg", myNewFrame);
                     isTakePicture=false;
                 }
                 if (isFaceDetect)
@@ -163,6 +158,5 @@ namespace WFapp_OpencvSharp_20200407
                 pictureBox_PlayCamera.Image = myBitmap;                            
             }
         }
-
     }
 }
