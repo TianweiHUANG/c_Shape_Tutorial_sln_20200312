@@ -6,3 +6,4 @@ D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\c_Shape
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\c_Shape_Tutorial_sln_20191218\CSapp_S7net\obj\Debug\CSapp_S7NET.csprojResolveAssemblyReference.cache
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\c_Shape_Tutorial_sln_20191218\CSapp_S7net\obj\Debug\CSapp_S7net.exe
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\c_Shape_Tutorial_sln_20191218\CSapp_S7net\obj\Debug\CSapp_S7net.pdb
+F:\TianweiHUANG_BGI_Backups_20180504_附件\Visual Studio 2012_TEST_20191129\Projects\c_Shape_Tutorial_sln_20200312\CSapp_S7net\bin\Debug\CSapp_S7net.exe.config

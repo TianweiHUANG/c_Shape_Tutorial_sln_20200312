@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFapp_S7NET", "WFapp_S7NET\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFapp_OpencvSharp_20200407", "WFapp_OpencvSharp_20200407\WFapp_OpencvSharp_20200407.csproj", "{86110BA6-9497-4FB2-B950-BBA9D4724AE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c_Sharp_Array_20200413", "c_Sharp_Array_20200413\c_Sharp_Array_20200413.csproj", "{BAB9E291-9E4F-45F4-803C-628164433C4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{86110BA6-9497-4FB2-B950-BBA9D4724AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86110BA6-9497-4FB2-B950-BBA9D4724AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86110BA6-9497-4FB2-B950-BBA9D4724AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB9E291-9E4F-45F4-803C-628164433C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB9E291-9E4F-45F4-803C-628164433C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB9E291-9E4F-45F4-803C-628164433C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB9E291-9E4F-45F4-803C-628164433C4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

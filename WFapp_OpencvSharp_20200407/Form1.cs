@@ -104,7 +104,7 @@ namespace WFapp_OpencvSharp_20200407
                 {
                     continue;
                 }
-                Cv2.Flip(myFrame, myFrame, OpenCvSharp.FlipMode.Y);
+                //Cv2.Flip(myFrame, myFrame, OpenCvSharp.FlipMode.Y);
                 Rect myRect = new Rect(0, 0, 450, 360);
                 Mat myNewFrame = new Mat(myFrame, myRect);
                 if (isTakePicture)
