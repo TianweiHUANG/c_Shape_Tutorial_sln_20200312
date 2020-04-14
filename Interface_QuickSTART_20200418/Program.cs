@@ -31,6 +31,14 @@ namespace Interface_QuickSTART_20200418
     //        Console.WriteLine("我是小猴子，我喜欢吃香蕉");
     //    }
     //}
+    //// D程序员写的小兔子类
+    //class Rabbit
+    //{
+    //    public void LikeFood()
+    //    {
+    //        Console.WriteLine("我是小兔子，我喜欢吃萝卜");
+    //    }
+    //}
     //// 动物园类
     //class Zoo
     //{
@@ -38,7 +46,6 @@ namespace Interface_QuickSTART_20200418
     //    {
     //        dog.LikeFood();
     //    }
-
     //    public void Show(Cat cat)
     //    {
     //        cat.LikeFood();
@@ -47,23 +54,27 @@ namespace Interface_QuickSTART_20200418
     //    {
     //        monkey.LikeFood();
     //    }
+    //    public void Show(Rabbit rabbit)
+    //    {
+    //        rabbit.LikeFood();
+    //    }
     //}
     ////////////////////////////////////////////////////////////////////////////////////////////////   
-    //class Dog:Animal
+    //class Dog : Animal
     //{
     //    public override void LikeFood()//覆盖
     //    {
     //        Console.WriteLine("我是小狗，我喜欢吃肉");
     //    }
     //}
-    //class Cat:Animal
+    //class Cat : Animal
     //{
     //    public override void LikeFood()//覆盖
     //    {
     //        Console.WriteLine("我是小猫，我喜欢吃鱼");
     //    }
     //}
-    //class Monkey:Animal
+    //class Monkey : Animal
     //{
     //    public override void LikeFood()//覆盖
     //    {
@@ -74,7 +85,7 @@ namespace Interface_QuickSTART_20200418
     //{
     //    public void FavoriteFood()//“Interface_QuickSTART_20200418.Rabbit.FavoriteFood()”: 没有找到适合的方法来重写
     //    {
-    //        Console.WriteLine("我是兔子，我喜欢吃萝卜");
+    //        Console.WriteLine("我是小兔子，我喜欢吃萝卜");
     //    }
     //}
     ////动物类
@@ -94,32 +105,32 @@ namespace Interface_QuickSTART_20200418
     //    }
     //}
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    class Dog:Animal
+    class Dog : Animal
     {
         public void LikeFood()
         {
             Console.WriteLine("我是小狗，我喜欢吃肉");
         }
     }
-    class Cat:Animal
+    class Cat : Animal
     {
         public void LikeFood()
         {
             Console.WriteLine("我是小猫，我喜欢吃鱼");
         }
     }
-    class Monkey:Animal
+    class Monkey : Animal
     {
         public void LikeFood()
         {
             Console.WriteLine("我是小猴子，我喜欢吃香蕉");
         }
     }
-    class Rabbit:Animal
+    class Rabbit : Animal
     {
         public void LikeFood()
         {
-            Console.WriteLine("我是兔子，我喜欢吃萝卜");
+            Console.WriteLine("我是小兔子，我喜欢吃萝卜");
         }
     }
     //动物接口

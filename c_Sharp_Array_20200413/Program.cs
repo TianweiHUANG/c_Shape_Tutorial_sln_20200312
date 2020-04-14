@@ -8,7 +8,7 @@ namespace c_Sharp_Array_20200413
 {
     class Program
     {
-        static void Main_1(string[] args)
+        static void Main(string[] args)
         {
             int[] n = new int[10]; /* n 是一个带有 10 个整数的数组 */
             //int i, j;
@@ -26,7 +26,7 @@ namespace c_Sharp_Array_20200413
             }
             Console.ReadKey();
         }
-        static void Main(string[] args)
+        static void Main_1(string[] args)
         {
             int[] n = new int[10]; /* n 是一个带有 10 个整数的数组 */
 
