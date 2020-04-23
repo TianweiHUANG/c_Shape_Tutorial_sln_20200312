@@ -4,3 +4,4 @@ D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\Console
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 D:\LittleHUANG_STUDIO_20190819\Visual Studio 2012_TEST_20191129\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+F:\TianweiHUANG_BGI_Backups_20180504_附件\Visual Studio 2012_TEST_20191129\Projects\c_Shape_Tutorial_sln_20200312\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
