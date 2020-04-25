@@ -16,6 +16,8 @@ namespace CSapp_XMP_6004_TEST_20200425
             myPort.Send();
             myPort.Close();
 
+            //「LittleHUANG: 坦克 教程 握手挥手 232 485 422」
+            //—————————
             //************"短路"运算符************
             //Console.WriteLine("-&-运行结果为:");
             //Console.WriteLine("firstMethod() & secondMethod():={0}", firstMethod() & secondMethod());
