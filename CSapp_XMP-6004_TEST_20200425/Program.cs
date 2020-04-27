@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+//using System.Threading;
 using System.Threading.Tasks;
 using System.IO.Ports;//SerialPort port = new SerialPort("COM4")
 
@@ -15,7 +15,7 @@ namespace CSapp_XMP_6004_TEST_20200425
             mySerialPort myPort = new mySerialPort();
             myPort.Send();
             myPort.Close();
-
+            
             //「LittleHUANG: 坦克 教程 握手挥手 232 485 422」
             //—————————
             //************"短路"运算符************
@@ -85,7 +85,6 @@ namespace CSapp_XMP_6004_TEST_20200425
         //{
         //    Console.WriteLine("这是第二个方法...");
         //    return true;
-        //}
     }
      
     public class mySerialPort
@@ -110,14 +109,14 @@ namespace CSapp_XMP_6004_TEST_20200425
         private void Receieve()
         {
             port.DataReceived += port_DataReceived;// 委托与事件
-            //Console.WriteLine("port.DataReceived:{0}",port.DataReceived);
+            //Console.WriteLine("port.DataReceived:={0}",port.DataReceived);
         }
 
         void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             Console.WriteLine("port_DataReceived() is Running");
             //延时200ms接收数据，解决port_DataReceived()执行多次导致接收数据分段不全的问题。
-            Thread.Sleep(200);
+            System.Threading.Thread.Sleep(200);
             string ReceiveData = string.Empty;
             if (port != null)
             {
@@ -148,7 +147,7 @@ namespace CSapp_XMP_6004_TEST_20200425
                     //使用for循环，控制台输出SendData_Array即可发现问题:其缺少"0X0D"，并解决问题:SendData=SendData+"\r"。
                     //SendData: *** /1ZR *** 2F 31 5A 52 0D *** 
                     //byte[] SendData_Array = {0X2F,0X31,0X5A,0X52,0X0D};
-                    SendData = SendData + "\r";// -ok
+                    SendData =SendData + "\r";// -ok
                     byte[] SendData_Array = System.Text.Encoding.ASCII.GetBytes(SendData);
                     for (int i = 0; i < SendData_Array.Length; i++)
                     {
@@ -156,7 +155,7 @@ namespace CSapp_XMP_6004_TEST_20200425
                     }
                     port.Write(SendData_Array, 0, SendData_Array.Length);// --- --- //
                     //延时500ms接收数据，控制台发送完数据之后，延时写入"SendData:"。
-                    Thread.Sleep(500);
+                    System.Threading.Thread.Sleep(500);
                 }
                 Console.Write("SendData:");
                 SendData = Console.ReadLine();
