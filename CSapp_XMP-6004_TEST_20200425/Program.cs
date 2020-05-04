@@ -92,17 +92,17 @@ namespace CSapp_XMP_6004_TEST_20200425
         SerialPort port;
         public mySerialPort() 
         {
-            port = new SerialPort("COM4");// --- --- //
+            port = new SerialPort("COM10");// --- --- //
             port.BaudRate = 9600;// --- --- //      
             try
             {
                 port.Open();// --- --- // 
-                Console.WriteLine("The COM4 is opened...");                
+                Console.WriteLine("The COM10 is opened...");                
                 Receieve();
             }
             catch (Exception)
             {
-                Console.WriteLine("The COM4 Open failed!");
+                Console.WriteLine("The COM10 Open failed!");
             } 
         }
 
