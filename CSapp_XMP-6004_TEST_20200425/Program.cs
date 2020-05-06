@@ -171,6 +171,6 @@ namespace CSapp_XMP_6004_TEST_20200425
                 Console.WriteLine("The COM4 is closed...");
             }
         }
- 
+
     }
 }
