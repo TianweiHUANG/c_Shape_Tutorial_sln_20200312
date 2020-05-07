@@ -1,32 +1,31 @@
-int buttonPin02 = 2;
+int buttonPin07 = 7;
 int ledPin12 =  12;//-?
 int ledPin13 =  13;//-?  
 
-int buttonPin02State = 0; 
+int buttonPin07State = 0; 
 //int serialRead = 0;
 String serialRead = "";
 
 void setup() 
 {
-  pinMode(buttonPin02, INPUT_PULLUP);//-?
-  //pinMode(buttonPin02, INPUT);//-? 
+  pinMode(buttonPin07, INPUT_PULLUP);//-?
+  //pinMode(buttonPin07, INPUT);//-? 
   pinMode(ledPin12, OUTPUT);  
   pinMode(ledPin13, OUTPUT);
   
   //开启串口，通常置于setup()函数中。
   //默认SERIAL_8N1表示8个数据位，无校验位，1个停止位。 
-  //Serial.begin(9600);  
   Serial.begin(9600,SERIAL_8N1);
 }
 
 void loop() 
 {
   //*** *** *** *** *** *** *** *** *** *** *** *** //*** *** *** *** *** *** *** *** *** *** *** *** 
-  buttonPin02State = digitalRead(buttonPin02); 
-  if (buttonPin02State == LOW) 
+  buttonPin07State = digitalRead(buttonPin07); 
+  if (buttonPin07State == LOW) 
   { 
   delay(50); 
-    if (buttonPin02State == LOW) 
+    if (buttonPin07State == LOW) 
     {  
     digitalWrite(ledPin12, HIGH); 
     }
@@ -66,7 +65,8 @@ void loop()
   if (serialRead.length() > 0)
   {
     Serial.println("serialRead:="+serialRead);
-    if (serialRead=="start\r")
+    //if (serialRead=="start\r") 
+    if ((serialRead=="start") or (serialRead=="start\r") or (serialRead=="start\n") or (serialRead=="start\r\n"))
     {  
       Serial.println("Blinking...");//串口输出数据并换行。
       digitalWrite(ledPin13, HIGH);   
