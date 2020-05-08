@@ -1,8 +1,7 @@
 #include<SoftwareSerial.h>
 SoftwareSerial mySerial(3, 2);//RxD,TxD
 
-void setup() 
-{
+void setup() {
   Serial.begin(9600); 
   while (!Serial) {;}
   Serial.println("hardware serial!");
@@ -10,8 +9,7 @@ void setup()
   mySerial.println("software serial!");
 }
 
-void loop() 
-{
+void loop() {
   if(mySerial.available())
     Serial.write(mySerial.read());
   if(Serial.available())
