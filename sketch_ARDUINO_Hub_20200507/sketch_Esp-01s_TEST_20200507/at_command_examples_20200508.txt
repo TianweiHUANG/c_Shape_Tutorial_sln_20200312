@@ -1,0 +1,23 @@
+01$.测试 AT 启动；AT
+02$.重启模块；AT+RST
+03$.设置串口参数；AT+UART=9600,8,1,0,0 //AT+UART?
+
+04$.配置 WiFi 模式；AT+CWMODE=3 //-ok
+05$.连接路由器；AT+CWJAP="FAST_76F2","ad&28%5ty93qe4f82#br" //-ok？
+06$.查询 ESP8266 设备的 IP 地址；AT+CIFSR //-ok？WIFI_name
+07$.断开路由器；AT+CWQAP—断开与 AP 的连接
+
+08$.服务器设置端口 60000，启动监听；
+09$.ESP8266 设备作为客户端，设置服务器IP 地址 192.168.1.102/端口 60000，连接服务器；
+    AT+CIPSTART="TCP","192.168.1.103",60000
+10$.向服务器发送消息；
+    AT+CIPSEND=4
+    >test
+11$.接收服务器的消息；
+12$.断开服务器；AT+CIPCLOSEMODE AT+CIPCLOSE //？
+13$.随时查询连接状态；AT+CIPSTATUS //？
+
+14$.建立/关闭 TCP 服务器；AT+CIPSERVER
+
+禁止 //？5.2.19. AT+SAVETRANSLINK—保存透传到 Flash
+2018.04.24补充：此时若无USB转TTL工具，不要使用AT+SAVETRANSLINK指令，该指令会将当前设置存储到RAM中去，ESP8266通电后自动进入连接模式，除非使用USB转TTL进行烧写，否则将无法恢复到调试模式（无法使用AT指令）。本人掉坑，后USB转TTL烧写版本后，才恢复正常。 
