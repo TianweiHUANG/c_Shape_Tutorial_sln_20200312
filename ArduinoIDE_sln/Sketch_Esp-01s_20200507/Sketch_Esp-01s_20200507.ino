@@ -4,7 +4,7 @@
 //void setup() 
 //{
 //  Serial.begin(9600); 
-//  while (!Serial) {;}
+//  while (!Serial) {;} // -?
 //  Serial.println("hardware serial!");
 //  //mySerial.begin(115200);
 //  mySerial.begin(9600);
@@ -30,7 +30,7 @@ void setup()
   wifiSerial.begin(9600);
   delay(2000);
   //String wifiSerial_TCP = "AT+CIPSTART="TCP","192.168.1.102",60000\r\n";
-  wifiSerial.println("AT+CIPSTART=\"TCP\",\"192.168.1.102\",60000\r\n");//-?
+  wifiSerial.println("AT+CIPSTART=\"TCP\",\"192.168.1.102\",60000\r\n"); // -?
   delay(2000);
   wifiSerial.println("AT+CIPSEND=30\r\n");
   delay(500);
@@ -48,17 +48,22 @@ void loop()
    
   if (wifiSerialRead.length() > 0)
   {
-    //wifiSerial.println("AT+CIPSEND=18\r\n");
+    //wifiSerial.println("AT+CIPSEND=100\r\n");
     //delay(500);
-    //wifiSerial.println("wifiSerial_Readed!");
+    //wifiSerial.println("wifiSerialRead:="+wifiSerialRead);
     //delay(500);
     
     if (wifiSerialRead=="\r\n+IPD,5:start")
     { 
-      //wifiSerial.println("AT+CIPSEND=11\r\n");
+      //wifiSerial.println("AT+CIPSEND=100\r\n");
       //delay(500);
-      //wifiSerial.println("Blinking..."); 
+      //wifiSerial.println("wifiSerialRead:="+wifiSerialRead);
       //delay(500);
+    
+      wifiSerial.println("AT+CIPSEND=11\r\n");
+      delay(500);
+      wifiSerial.println("Blinking..."); 
+      delay(500);
       
       digitalWrite(ledPin13, HIGH);   
       delay(1000);                      
@@ -72,10 +77,10 @@ void loop()
       delay(1000);                    
       digitalWrite(ledPin13, LOW);
 
-      //wifiSerial.println("AT+CIPSEND=8\r\n");
-      //delay(500);
-      //wifiSerial.println("Blinked!"); 
-      //delay(500);           
+      wifiSerial.println("AT+CIPSEND=8\r\n");
+      delay(500);
+      wifiSerial.println("Blinked!"); 
+      delay(500);           
     }
     
     wifiSerialRead = "";
