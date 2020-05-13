@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{50B672AE-CC01-47DD-9D57-1BD22A3A0EEA}</ProjectGuid>
+    <ProjectGuid>{C5F80730-F44F-4478-BDAE-6634EFC2CA88}</ProjectGuid>
     <RootNamespace>Sketch_Esp_01s_20200507</RootNamespace>
     <ProjectName>Sketch_Esp-01s_20200507</ProjectName>
   </PropertyGroup>

@@ -18,7 +18,8 @@
 //  if(Serial.available())
 //    mySerial.write(Serial.read());
 //}
-#include<SoftwareSerial.h>
+//#include<SoftwareSerial.h>
+#include<F:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\src\SoftwareSerial.h>
 SoftwareSerial wifiSerial(3, 2);//RxD,TxD
 int ledPin13 = 13;
 String wifiSerialRead = "";
