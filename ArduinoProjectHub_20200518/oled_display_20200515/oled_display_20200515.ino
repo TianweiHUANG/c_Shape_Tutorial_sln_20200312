@@ -295,7 +295,8 @@ static const unsigned char PROGMEM pic4[] =
   0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,                    
 };                    
 
-void setup() {
+void setup() 
+{
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.setTextColor(WHITE);//打开像素点发光
   display.clearDisplay();//清除显示
@@ -304,44 +305,44 @@ void setup() {
   //display.setCursor(35, 5);//设置显示位置
   //display.println("-TonyCode-");
 
-  //display.setTextSize(2);//设置字体大小  
-  //display.setCursor(15, 30);//设置显示位置
-  //display.println("OLED TEST");
+  display.setTextSize(2);//设置字体大小  
+  display.setCursor(15, 30);//设置显示位置
+  display.println("OLED TEST");
 
   //display.drawBitmap(32, 32, str1, 16, 16, 1); //绘制字符点阵数据
   //display.drawBitmap(48, 32, str2, 16, 16, 1); //绘制字符点阵数据
   //display.drawBitmap(64, 32, str3, 16, 16, 1); //绘制字符点阵数据
   //display.drawBitmap(80, 32, str4, 16, 16, 1); //绘制字符点阵数据
   
-  //display.display();//打开显示 
+  display.display();//打开显示 
 }
 
 void loop()
 {
-  display.drawBitmap(0, 0, pic1, 128, 64, 1); //绘制字符点阵数据
-  display.display();//打开显示
-  delay(1000);
-  display.clearDisplay();//清除显示
-  display.drawBitmap(0, 0, pic2, 128, 64, 1); //绘制字符点阵数据
-  display.display();//打开显示
-  delay(1000);
-  display.clearDisplay();//清除显示
-
-  display.drawBitmap(0, 0, pic3, 128, 64, 1); //绘制字符点阵数据
-  display.display();//打开显示
-  delay(1000);
-  display.clearDisplay();//清除显示
-  display.drawBitmap(0, 0, pic4, 128, 64, 1); //绘制字符点阵数据
-  display.display();//打开显示
-  delay(1000);
-  display.clearDisplay();//清除显示
-
-//  display.startscrollright(0x00, 0x0F);
-//  delay(5000);
-//  display.stopscroll();
-//  display.startscrollleft(0x00, 0x0F);
+//  display.drawBitmap(0, 0, pic1, 128, 64, 1); //绘制字符点阵数据
+//  display.display();//打开显示
 //  delay(1000);
-//  display.stopscroll();
+//  display.clearDisplay();//清除显示
+//  display.drawBitmap(0, 0, pic2, 128, 64, 1); //绘制字符点阵数据
+//  display.display();//打开显示
+//  delay(1000);
+//  display.clearDisplay();//清除显示
+//
+//  display.drawBitmap(0, 0, pic3, 128, 64, 1); //绘制字符点阵数据
+//  display.display();//打开显示
+//  delay(1000);
+//  display.clearDisplay();//清除显示
+//  display.drawBitmap(0, 0, pic4, 128, 64, 1); //绘制字符点阵数据
+//  display.display();//打开显示
+//  delay(1000);
+//  display.clearDisplay();//清除显示
+
+  display.startscrollright(0x00, 0x0F);
+  delay(5000);
+  display.stopscroll();
+  display.startscrollleft(0x00, 0x0F);
+  delay(1000);
+  display.stopscroll();
 }
 
-//01&.关联库-ng、02&.放置位置-ng、03&.取字字模-ng、
+//01&.关联库-ng//02&.放置位置-ng//03&.取字字模-ng、
