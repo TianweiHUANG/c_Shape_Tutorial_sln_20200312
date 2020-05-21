@@ -1,3 +1,5 @@
+//01$.关联库-ng//02$.放置位置-ng//03$.取字字模-ng
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -344,5 +346,3 @@ void loop()
   delay(1000);
   display.stopscroll();
 }
-
-//01&.关联库-ng//02&.放置位置-ng//03&.取字字模-ng、
