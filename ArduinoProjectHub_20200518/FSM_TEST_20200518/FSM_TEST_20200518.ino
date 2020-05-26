@@ -16,7 +16,7 @@ void setup()
 
 void loop()
 {
-  //*** *** *** *** *** *** stateFlag_Task1 *** *** *** *** *** ***// 
+  //*** *** *** *** *** *** Task1 *** *** *** *** *** ***// 
   switch (stateFlag_Task1)
   {
     case 0:
@@ -49,7 +49,7 @@ void loop()
       break;
   }
   
-  //*** *** *** *** *** *** stateFlag_Task2 *** *** *** *** *** ***// 
+  //*** *** *** *** *** *** Task2 *** *** *** *** *** ***// 
   switch (stateFlag_Task2)
   {
     case 0:
