@@ -1,0 +1,61 @@
+*** *** *** *** *** *** *** -ping- *** *** *** *** *** *** ***
+////// ////// ////// ////// ////// ////// ////// ////// //////
+cmd->ping api.heclouds.com
+183.230.40.33:80
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
+*** *** *** *** *** *** *** -POST- *** *** *** *** *** *** ***
+////// ////// ////// ////// ////// ////// ////// ////// //////
+POST /devices/600131852/datapoints HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+Content-Length:74
+
+{"datastreams":[{"id":"DataFlow_dashboard1","datapoints":[{"value":22}]}]}
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+
+*** *** *** *** *** *** *** -POST- *** *** *** *** *** *** *** 
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+POST /devices/600131852/datapoints?type=3 HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+Content-Length:51
+
+{"DataFlow_dashboard1":10,"DataFlow_dashboard2":20}
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+
+*** *** *** *** *** *** *** -GET- *** *** *** *** *** *** *** 
+////// ////// ////// ////// ////// ////// ////// ////// //////
+GET /devices/600131852/datastreams/DataFlow_dashboard1 HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+
+
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
+*** *** *** *** *** *** *** -GET- *** *** *** *** *** *** *** 
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+GET /devices/600131852/datastreams HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+
+
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
+*** *** *** *** *** *** *** -RET- *** *** *** *** *** *** *** 
+////// ////// ////// ////// ////// ////// ////// ////// //////
+16:26:13 收到数据：HTTP/1.1 200 OK
+Date: Fri, 29 May 2020 08:25:17 GMT
+Content-Type: application/json
+Content-Length: 431
+Connection: close
+Server: Apache-Coyote/1.1
+Pragma: no-cache
+
+{"errno":0,"data":[{"unit":"","unit_symbol":"","create_time":null,"id":"DataFlow_switch"},{"unit":"","unit_symbol":"","create_time":null,"id":"DataFlow_knob"},{"unit":"","unit_symbol":"","create_time":null,"update_at":"2020-05-29 16:15:06","id":"DataFlow_dashboard1","current_value":10},{"unit":"","unit_symbol":"","create_time":null,"update_at":"2020-05-29 16:15:07","id":"DataFlow_dashboard2","current_value":20}],"error":"succ"}
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
