@@ -1,0 +1,50 @@
+CMD -> ping api.heclouds.com
+183.230.40.33:80 查询文档？
+
+////// ////// ////// ////// ////// ////// ////// ////// ////// -POST close/open/other？end-\r\n?
+POST /devices/600131852/datapoints HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+Content-Length:74
+
+{"datastreams":[{"id":"DataFlow_dashboard1","datapoints":[{"value":22}]}]}
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+
+////// ////// ////// ////// ////// ////// ////// ////// ////// -POST end-\r\n?
+POST /devices/600131852/datapoints?type=3 HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Content-Length:51
+
+{"DataFlow_dashboard1":10,"DataFlow_dashboard2":20}
+////// ////// ////// ////// ////// ////// ////// ////// ////// 
+
+////// ////// ////// ////// ////// ////// ////// ////// ////// -GET close/open/other？end-\r\n?
+GET /devices/600131852/datastreams/DataFlow_dashboard1 HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+Connection:close
+
+
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
+////// ////// ////// ////// ////// ////// ////// ////// ////// -GET 去掉Connection:close? 
+GET /devices/600131852/datastreams HTTP/1.1
+api-key:zmUGR6kASJ4XDso=qswx9v6KW=o=
+Host:api.heclouds.com
+
+
+////// ////// ////// ////// ////// ////// ////// ////// //////
+
+////// ////// ////// ////// ////// ////// ////// ////// ////// -RET
+11:23:54 收到数据：HTTP/1.1 200 OK
+Date: Fri, 29 May 2020 03:22:58 GMT
+Content-Type: application/json
+Content-Length: 431
+Connection: keep-alive
+Server: Apache-Coyote/1.1
+Pragma: no-cache
+
+{"errno":0,"data":[{"unit":"","unit_symbol":"","create_time":null,"id":"DataFlow_switch"},{"unit":"","unit_symbol":"","create_time":null,"id":"DataFlow_knob"},{"unit":"","unit_symbol":"","create_time":null,"update_at":"2020-05-29 10:58:56","id":"DataFlow_dashboard1","current_value":10},{"unit":"","unit_symbol":"","create_time":null,"update_at":"2020-05-29 10:58:56","id":"DataFlow_dashboard2","current_value":20}],"error":"succ"}
+////// ////// ////// ////// ////// ////// ////// ////// //////
