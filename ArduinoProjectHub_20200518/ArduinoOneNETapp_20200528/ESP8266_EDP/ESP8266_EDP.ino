@@ -27,8 +27,8 @@ SoftwareSerial wifiSerial( _rxpin, _txpin );
 #define WIFI_UART   wifiSerial
 #define _baudrate   9600
 
-#define deviceID   "600131852"                    //deviceID
-#define apiKEY     "zmUGR6kASJ4XDso=qswx9v6KW=o=" //apiKEY 
+#define deviceID    "600131852"                    //deviceID
+#define apiKEY      "zmUGR6kASJ4XDso=qswx9v6KW=o=" //apiKEY 
 
 const int stbPin = 7; //the segment display module STB pin connected to digital pin 7
 const int dioPin = 8; //the segment display module DIO pin connected to digital pin 8
@@ -95,12 +95,12 @@ void setup()
   
   while (!doCmdOk("AT", "OK"));
   digitalWrite(13, HIGH);// Led_pin13 HIGH
-  while (!doCmdOk("AT+CWMODE=3", "OK"));   //工作模式
+  while (!doCmdOk("AT+CWMODE=3", "OK"));    //工作模式
   while (!doCmdOk("AT+CWJAP=\"FAST_TianweiHUANG\",\"ad&28%5ty93qe4f82#br\"", "OK"));
   //while (!doCmdOk("AT+CIPSTART=\"TCP\",\"jjfaedp.hedevice.com\",876", "OK"));
   while (!doCmdOk("AT+CIPSTART=\"TCP\",\"183.230.40.39\",876", "OK"));
-  while (!doCmdOk("AT+CIPMODE=1", "OK"));  //透传模式
-  while (!doCmdOk("AT+CIPSEND", ">"));     //开始发送
+  while (!doCmdOk("AT+CIPMODE=1", "OK"));   //透传模式
+  while (!doCmdOk("AT+CIPSEND", ">"));      //开始发送
 }
 
 /* *** *** *** *** *** *** 4/7 void loop()? *** *** *** *** *** *** */
@@ -167,17 +167,17 @@ void loop()
     
       DHT11_Counter = 0;
     }
-    
+    //?
     while (WIFI_UART.available())
     {
     
         readEdpPkt(&rcv_pkt);
         if (isEdpPkt(&rcv_pkt))
         {
-              pkt_type = rcv_pkt.data[0];
-              switch (pkt_type)
-              {
-                    case CMDREQ:
+            pkt_type = rcv_pkt.data[0];
+            switch (pkt_type)
+            {
+                case CMDREQ:
                     char edp_command[50];
                     char edp_cmd_id[40];
                     long id_len, cmd_len, rm_len;
@@ -192,26 +192,26 @@ void loop()
                     sscanf(edp_command, "%[^:]:%s", datastr, val);
                     
                     if (atoi(val) == 1)
-                       // 使Led亮
-                       digitalWrite(12, HIGH);
+                      digitalWrite(12, HIGH);// Led_pin12 HIGH
                     else
-                    digitalWrite(12, LOW);   // 使Led灭
+                      digitalWrite(12, LOW);// Led_pin12 LOW
                     
                     if(atoi(val) > 1)
                     {
-                       sendCommand(0x40);                                       //setting the Write Data Command,using automatic address genuine.
-                       digitalWrite(stbPin, LOW);                               //pin low.  To begin receiving data
-                       shiftOut(dioPin, clkPin, LSBFIRST, 0xc0);                //Set the start address 0C0H
-                      if(atoi(val) >= 100 && atoi(val) <=1000)
+                       sendCommand(0x40);                        //setting the Write Data Command,using automatic address genuine.
+                       digitalWrite(stbPin, LOW);                //pin low. To begin receiving data
+                       shiftOut(dioPin, clkPin, LSBFIRST, 0xc0); //Set the start address 0C0H
+                       
+                       if(atoi(val) >= 100 && atoi(val) <=1000)
                        {   
-                          shiftOut(dioPin, clkPin, LSBFIRST, digits[0]);//thousand data
-                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data  
+                         shiftOut(dioPin, clkPin, LSBFIRST, digits[0]);                //thousand data
+                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                     //filling high 8-bit data  
                          shiftOut(dioPin, clkPin, LSBFIRST, digits[atoi(val)/100%10]); //hundred data
-                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data 
+                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                     //filling high 8-bit data 
                          shiftOut(dioPin, clkPin, LSBFIRST, digits[atoi(val)/10%10]);  //ten data
-                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data
+                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                     //filling high 8-bit data
                          shiftOut(dioPin, clkPin, LSBFIRST, digits[atoi(val)%10]);     //bit data
-                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data 
+                         shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                     //filling high 8-bit data 
                        }
                      
                        else  if(atoi(val) >= 10 && atoi(val) <=100)
@@ -226,9 +226,9 @@ void loop()
                          shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data 
                        }
                       
-                      else  if(atoi(val) > 0 && atoi(val) <=10)
+                       else  if(atoi(val) > 0 && atoi(val) <=10)
                        {
-                          shiftOut(dioPin, clkPin, LSBFIRST, digits[0]);//thousand data
+                         shiftOut(dioPin, clkPin, LSBFIRST, digits[0]);//thousand data
                          shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data  
                          shiftOut(dioPin, clkPin, LSBFIRST, digits[0]); //hundred data
                          shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data 
@@ -237,18 +237,19 @@ void loop()
                          shiftOut(dioPin, clkPin, LSBFIRST, digits[atoi(val)%10]);     //bit data
                          shiftOut(dioPin, clkPin, LSBFIRST, 0x00);                //filling high 8-bit data  
                        }
-                       digitalWrite(stbPin, HIGH);
+                       
+                       digitalWrite(stbPin, HIGH);//pin high. Stop receiving data
                        delay(500);  
                     } 
-                                                   //pin high.  Stop receiving data
-                    packetSend(packetDataSaveTrans(NULL, datastr, val)); //将新数据值上传至数据流
-                        
                     
+                    packetSend(packetDataSaveTrans(NULL, datastr, val)); //将刷新的数据值上传至数据流
+                
                     break;
-                    default:
+                
+                default:
                     ;
                     break;
-              }
+            }
         }
         //delay(4);
     }
