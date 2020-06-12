@@ -1,0 +1,10 @@
+183.230.40.40 1811
+
+*353230#20200610210507#LuaSTR* *353230#20200610210507#LuaHEX*
+
+DataFlow_switch / DataFlow_knob / DataFlow_dashboard1 / DataFlow_dashboard2 
+-00490509 -01055999
+
+switch:{v} / knob:{v}
+
+

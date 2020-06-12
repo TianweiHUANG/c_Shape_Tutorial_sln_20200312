@@ -1,32 +1,20 @@
-/*
-   采用外接电源单独供电，2 3口作为软串口接PC机作为调试端
-   1 0为串口，连接WIFI模块
-*/
 #include <Wire.h>
+#define GY_30Addr 0b0100011
+
+#define DBG_UART    Serial
 #include <SoftwareSerial.h>
-#include "edp.c"
-
-
-// GY-30
-// BH1750FVI 光照传感器
-// in ADDR 'L' mode 7bit addr
-#define ADDR 0b0100011
-
-#define KEY  "ogCJe19clnmc6KAqv9mPru8dtPc="    //APIkey
-#define ID   "680792"                          //设备ID
-//#define PUSH_ID "680788"
-#define PUSH_ID NULL
-
-// 串口
-#define _baudrate   115200
 #define _rxpin      3
 #define _txpin      2
-#define WIFI_UART   Serial
-#define DBG_UART    dbgSerial   //调试打印串口
+SoftwareSerial      wifiSerial( _rxpin, _txpin );
+#define WIFI_UART   wifiSerial
+#define _baudrate   9600
 
-SoftwareSerial dbgSerial( _rxpin, _txpin ); // 软串口，调试打印
-edp_pkt *pkt;
+#include "edp.c"
+#define deviceID    "600131852"                    //deviceID
+#define apiKEY      "zmUGR6kASJ4XDso=qswx9v6KW=o=" //apiKEY 
+#define PUSH_ID     NULL
 
+/* *** *** *** *** *** *** 1/7 bool doCmdOk(String data, char *keyword) *** *** *** *** *** *** */
 /*
  * doCmdOk
  * 发送命令至模块，从回复中获取期待的关键字
@@ -63,37 +51,38 @@ bool doCmdOk(String data, char *keyword)
   return result;
 }
 
+/* *** *** *** *** *** *** 2/7 void setup() *** *** *** *** *** *** */
 void setup()
 {
-  //char buf[100] = {0};
-  //int tmp;
-
-  pinMode(13, OUTPUT);   //WIFI模块指示灯
   pinMode(8, OUTPUT);    //用于连接EDP控制的发光二极管
+  pinMode(13, OUTPUT);   //WIFI模块指示灯
 
   WIFI_UART.begin( _baudrate );
   DBG_UART.begin( _baudrate );
   WIFI_UART.setTimeout(3000);    //设置find超时时间
   delay(3000);
-  DBG_UART.println("hello world!");
+  //DBG_UART.println("hello world!");
+  DBG_UART.println("The DBG_UART is connected!");
 
-  // 光照传感器初始化
+  //光照传感器初始化
   Wire.begin();
-  Wire.beginTransmission(ADDR);
+  Wire.beginTransmission(GY_30Addr);
   Wire.write(0b00000001);
   Wire.endTransmission();
 
   delay(2000);
   while (!doCmdOk("AT", "OK"));
-  digitalWrite(13, HIGH);   // 使Led亮
+  digitalWrite(13, HIGH);;// Led_pin13 HIGH //"The WIFI_UART is connected!"
 
   while (!doCmdOk("AT+CWMODE=3", "OK"));            //工作模式
-  while (!doCmdOk("AT+CWJAP=\"360\",\"12345678\"", "OK"));
-  while (!doCmdOk("AT+CIPSTART=\"TCP\",\"183.230.40.39\",876", "Linked"));
+  while (!doCmdOk("AT+CWJAP=\"FAST_TianweiHUANG\",\"ad&28%5ty93qe4f82#br\"", "OK"));
+  //while (!doCmdOk("AT+CIPSTART=\"TCP\",\"jjfaedp.hedevice.com\",876", "OK"));
+  while (!doCmdOk("AT+CIPSTART=\"TCP\",\"183.230.40.39\",876", "OK"));
   while (!doCmdOk("AT+CIPMODE=1", "OK"));           //透传模式
   while (!doCmdOk("AT+CIPSEND", ">"));              //开始发送
 }
 
+/* *** *** *** *** *** *** 3/7 void loop()? *** *** *** *** *** *** */
 void loop()
 {
   static int edp_connect = 0;
@@ -107,11 +96,11 @@ void loop()
   if (!edp_connect)
   {
     while (WIFI_UART.available()) WIFI_UART.read(); //清空串口接收缓存
-    packetSend(packetConnect(ID, KEY));             //发送EPD连接包
+    packetSend(packetConnect(deviceID, apiKEY));             //发送EPD连接包// func
     while (!WIFI_UART.available());                 //等待EDP连接应答
     if ((tmp = WIFI_UART.readBytes(rcv_pkt.data, sizeof(rcv_pkt.data))) > 0 )
     {
-      rcvDebug(rcv_pkt.data, tmp);
+      rcvDebug(rcv_pkt.data, tmp);// func
       if (rcv_pkt.data[0] == 0x20 && rcv_pkt.data[2] == 0x00 && rcv_pkt.data[3] == 0x00)
       {
         edp_connect = 1;
@@ -123,18 +112,18 @@ void loop()
     packetClear(&rcv_pkt);
   }
 
-  trigger = readGY_30(num);
+  trigger = readGY_30(num);// func
   if (edp_connect && trigger)
   {
     DBG_UART.print("GY_30: ");
     DBG_UART.println(num);
-    packetSend(packetDataSaveTrans(PUSH_ID, "light intensity", num));  //发送数据存储包
+    packetSend(packetDataSaveTrans(PUSH_ID, "light intensity", num));  //发送数据存储包// func
                                                                        //当PUSH_ID不为NULL时转发至PUSH_ID
   }
 
   while (WIFI_UART.available())
   {
-    readEdpPkt(&rcv_pkt);
+    readEdpPkt(&rcv_pkt);// func
     if (isEdpPkt(&rcv_pkt))
     {
       pkt_type = rcv_pkt.data[0];
@@ -168,11 +157,11 @@ void loop()
           //本例中格式为  datastream:[1/0] 
           sscanf(edp_command, "%[^:]:%s", datastr, val);
           if (atoi(val) == 1)
-            digitalWrite(8, HIGH);   // 使Led亮
+            digitalWrite(12, HIGH);   // 使Led亮
           else
-            digitalWrite(8, LOW);   // 使Led灭
+            digitalWrite(12, LOW);   // 使Led灭
 
-          packetSend(packetDataSaveTrans(NULL, datastr, val)); //将新数据值上传至数据流
+          packetSend(packetDataSaveTrans(NULL, datastr, val)); //将新数据值上传至数据流// func
           break;
         default:
           DBG_UART.print("unknown type: ");
@@ -187,6 +176,7 @@ void loop()
   delay(150);
 }
 
+/* *** *** *** *** *** *** 4/7 bool readEdpPkt(edp_pkt *p) *** *** *** *** *** *** */
 /*
  * readEdpPkt
  * 从串口缓存中读数据到接收缓存
@@ -196,12 +186,13 @@ bool readEdpPkt(edp_pkt *p)
   int tmp;
   if ((tmp = WIFI_UART.readBytes(p->data + p->len, sizeof(p->data))) > 0 )
   {
-    rcvDebug(p->data + p->len, tmp);
+    rcvDebug(p->data + p->len, tmp);// func
     p->len += tmp;
   }
   return true;
 }
 
+/* *** *** *** *** *** *** 5/7 void packetSend(edp_pkt* pkt) *** *** *** *** *** *** */
 /*
  * packetSend
  * 将待发数据发送至串口，并释放到动态分配的内存
@@ -210,12 +201,13 @@ void packetSend(edp_pkt* pkt)
 {
   if (pkt != NULL)
   {
-    WIFI_UART.write(pkt->data, pkt->len);    //串口发送
+    WIFI_UART.write(pkt->data, pkt->len);   //串口发送
     WIFI_UART.flush();
-    free(pkt);              //回收内存
+    free(pkt);   //回收内存
   }
 }
 
+/* *** *** *** *** *** *** 6/7 void rcvDebug(unsigned char *rcv, int len) *** *** *** *** *** *** */
 void rcvDebug(unsigned char *rcv, int len)
 {
   int i;
@@ -230,23 +222,24 @@ void rcvDebug(unsigned char *rcv, int len)
   DBG_UART.println("");
 }
 
+/* *** *** *** *** *** *** 7/7 bool readGY_30(char *num) *** *** *** *** *** *** */
 bool readGY_30(char *num)
 {
   static int val = 0, count = 10;;
   int tmp;
   // reset
-  Wire.beginTransmission(ADDR);
+  Wire.beginTransmission(GY_30Addr);
   Wire.write(0b00000111);
   Wire.endTransmission();
   delay(100);
 
-  Wire.beginTransmission(ADDR);
+  Wire.beginTransmission(GY_30Addr);
   Wire.write(0b00100000);
   Wire.endTransmission();
 
   // typical read delay 120ms
   delay(120);
-  Wire.requestFrom(ADDR, 2); // 2byte every time
+  Wire.requestFrom(GY_30Addr, 2); // 2byte every time
   while (Wire.available())
   {
     char c = Wire.read();
