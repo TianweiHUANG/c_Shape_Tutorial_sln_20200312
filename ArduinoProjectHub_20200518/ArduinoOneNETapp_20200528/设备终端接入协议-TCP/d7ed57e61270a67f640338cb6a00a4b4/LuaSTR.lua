@@ -310,7 +310,7 @@ function device_timer_init(dev)
 	-- 例如： --
 	dev:timeout(3)
 	dev:add(10,"dev1","\72\101\108\108\111\32\65\114\100\117\105\110\111")
-	dev:add(10,"dev2","\72\101\108\108\111\32\65\114\100\117\105\110\111")
+	dev:add(10,"dev2","\72\101\108\108\111\32\65\114\100\117\105\110\111")	
 end
 
 -----------------------------------------------------------------------------------------------------------
@@ -388,15 +388,40 @@ function device_data_analyze(dev)
 	-- add_val(t,"ds_test",a,dev:bytes(1,s),"dev2") --
 	-- dev:response() --
 	-- dev:send("received") --
-		-- 添加用户自定义代码 --
+	-- 添加用户自定义代码 --
 	-- 例如： --
+	-- local s = dev:size() --
+	-- add_bin(t,"ds_test",a,dev:bytes(1,s)) --
+	-- add_bin(t,"ds_test",a,dev:bytes(1,s),"dev1") --
+	-- add_bin(t,"ds_test",a,dev:bytes(1,s),"dev2") --
+	-- dev:response() --
+	-- dev:send("received") --
+	-- 添加用户自定义代码 --
+	-- 例如： --
+	-- add_val(t,"DataFlow_switch",a,dev:bytes(1,2)) --
+	-- add_val(t,"DataFlow_knob",a,dev:bytes(3,2)) --
+	-- add_val(t,"DataFlow_dashboard1",a,dev:bytes(5,2)) --
+	-- add_val(t,"DataFlow_dashboard2",a,dev:bytes(7,2)) --
+	-- //;DataFlow_switch,//0//;DataFlow_knob,//049//;DataFlow_dashboard1,//005//;DataFlow_dashboard2,//009// --
+    -- //;DataFlow_switch,//1//;DataFlow_knob,//009//;DataFlow_dashboard1,//059//;DataFlow_dashboard2,//099// --
 	local s = dev:size()
-	add_val(t,"DataFlow_switch",a,dev:bytes(1,2))
-	add_val(t,"DataFlow_knob",a,dev:bytes(3,2))
-	add_val(t,"DataFlow_dashboard1",a,dev:bytes(5,2))
-	add_val(t,"DataFlow_dashboard2",a,dev:bytes(7,2))
-	dev:response()
-	dev:send("received")
+
+	add_val(t,"DataFlow_received",a,dev:bytes(1,s))
+
+	add_val(t,"DataFlow_switch_MARK",a,dev:bytes(1,17))
+	add_val(t,"DataFlow_switch",a,dev:bytes(18,1))
+
+	add_val(t,"DataFlow_knob_MARK",a,dev:bytes(19,15))
+	add_val(t,"DataFlow_knob",a,dev:bytes(34,3))
+
+	add_val(t,"DataFlow_dashboard1_MARK",a,dev:bytes(37,21))
+	add_val(t,"DataFlow_dashboard1",a,dev:bytes(58,3))
+
+	add_val(t,"DataFlow_dashboard2_MARK",a,dev:bytes(61,21))
+	add_val(t,"DataFlow_dashboard2",a,dev:bytes(82,3))
+
+    dev:response()
+	dev:send("received") 
 
 	-- return $1,$2 --
 	-- 例如： --
