@@ -1,140 +1,50 @@
 #include<SoftwareSerial.h>
-SoftwareSerial mySerial(3, 2);//RxD,TxD
+SoftwareSerial wifiSerial(3, 2);//RxD,TxD
 
 void setup() {
   Serial.begin(9600); 
   while (!Serial) {;}
-  Serial.println("hardware serial!");
-  //mySerial.begin(115200);
-  mySerial.begin(9600);
-  mySerial.println("software serial!");
+  Serial.println("The Serial is opened...");
+  wifiSerial.begin(9600);//wifiSerial.begin(115200);
+  while (!wifiSerial) {;}
+  wifiSerial.println("The wifiSerial is opened...");
 }
 
 void loop() {
-  if(mySerial.available())
-    Serial.write(mySerial.read());
+  if(wifiSerial.available())
+    Serial.write(wifiSerial.read());
   if(Serial.available())
-    mySerial.write(Serial.read());
+    wifiSerial.write(Serial.read());
 }
 
-//esp8266_at_command_examples__20200508.txt
-//01$.测试 AT 启动；AT
-//02$.重启模块；AT+RST
-//03$.设置串口参数；AT+UART=9600,8,1,0,0 //AT+UART?
-//
-//04$.配置 WiFi 模式；AT+CWMODE=3 //-ok
-//05$.连接路由器；AT+CWJAP="FAST_76F2","ad&28%5ty93qe4f82#br" //-ok？
-//06$.查询 ESP8266 设备的 IP 地址；AT+CIFSR //-ok？WIFI_name
-//07$.断开路由器；AT+CWQAP—断开与 AP 的连接
-//
-//08$.服务器设置端口 60000，启动监听；
-//09$.ESP8266 设备作为客户端，设置服务器IP 地址 192.168.1.102/端口 60000，连接服务器；
-//    AT+CIPSTART="TCP","192.168.1.103",60000
-//10$.向服务器发送消息；
-//    AT+CIPSEND=4
-//    >test
-//11$.接收服务器的消息；
-//12$.断开服务器；AT+CIPCLOSEMODE AT+CIPCLOSE //？
-//13$.随时查询连接状态；AT+CIPSTATUS //？
-//
-//14$.建立/关闭 TCP 服务器；AT+CIPSERVER
-//
-//禁止 //？5.2.19. AT+SAVETRANSLINK—保存透传到 Flash
-//2018.04.24补充：此时若无USB转TTL工具，不要使用AT+SAVETRANSLINK指令，该指令会将当前设置存储到RAM中去，ESP8266通电后自动进入连接模式，除非使用USB转TTL进行烧写，否则将无法恢复到调试模式（无法使用AT指令）。本人掉坑，后USB转TTL烧写版本后，才恢复正常。 
-//*** *** *** *** *** esp8266_at_command_examples_cn.pdf *** *** *** *** ***
-//01$.测试AT启动；AT
-//02$.重启模块；AT+RST
-//03$.配置串口通讯参数；AT+UART=9600,8,1,0,0
-//
-//04$.配置WiFi模式；AT+CWMODE=3
-//05$.连接路由器；AT+CWJAP="FAST_TianweiHUANG","ad&28%5ty93qe4f82#br" 
-//06$.查询ESP8266设备的IP地址；AT+CIFSR
-//07$.断开与路由器的连接；AT+CWQAP
-//
-//08$.服务器设定端口60000，启动监听；
-//09$.ESP8266设备作为客户端，设定服务器IP地址192.168.1.102，端口60000，连接到服务器；
-//    AT+CIPSTART="TCP","192.168.1.102",60000
-//10$.向服务器发送数据；
-//    AT+CIPSEND=4
-//    >test
-//11$.接收服务器的数据；
-//12$.断开与服务器的连接；AT+CIPCLOSEMODE,AT+CIPCLOSE
-//13$.随时查询ESP8266设备与路由器及与服务器的连接状态；AT+CIPSTATUS
-//
-//14$.使能透传模式；AT+CIPMODE=1
-//15$.向服务器发送数据；AT+CIPSEND  
-//16$.退出发送数据；“+++”
-//17$.退出透传模式；AT+CIPMODE=0
-//18$.(*禁止*)保存透传到Flash；AT+SAVETRANSLINK
-//
-//19$.建立TCP服务器；AT+CIPSERVER=1,333,
-//20$.关闭TCP服务器；AT+CIPSERVER=0
-//*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***  
+/*
+*** *** *** *** *** esp8266_at_command_examples_cn.pdf *** *** *** *** ***
+01$.测试AT启动；AT
+02$.重启模块；AT+RST
+03$.配置串口通讯参数；AT+UART=9600,8,1,0,0
 
-//#include<SoftwareSerial.h>
-//SoftwareSerial wifiSerial(3, 2);//RxD,TxD
-//int ledPin13 = 13;
-//String wifiSerialRead = "";
-//
-//void setup() 
-//{
-//  pinMode(ledPin13, OUTPUT);
-//  
-//  wifiSerial.begin(9600);
-//  delay(2000);
-//  wifiSerial.println("AT+CIPSTART=\"TCP\",\"192.168.1.101\",60000\r\n");
-//  delay(2000);
-//  wifiSerial.println("AT+CIPSEND=30\r\n");
-//  delay(500);
-//  wifiSerial.println("Arduino_Esp8266-01s_Connected!");
-//  delay(2000);
-//}
-//
-//void loop() 
-//{ 
-//  while (wifiSerial.available() > 0)
-//  {
-//    wifiSerialRead += char(wifiSerial.read());
-//    delay(5);
-//  } 
-//   
-//  if (wifiSerialRead.length() > 0)
-//  {
-//    //wifiSerial.println("AT+CIPSEND=100\r\n");
-//    //delay(500);
-//    //wifiSerial.println("wifiSerialRead:="+wifiSerialRead);
-//    //delay(500);
-//    
-//    if (wifiSerialRead=="\r\n+IPD,5:start")
-//    { 
-//      //wifiSerial.println("AT+CIPSEND=100\r\n");
-//      //delay(500);
-//      //wifiSerial.println("wifiSerialRead:="+wifiSerialRead);
-//      //delay(500);
-//    
-//      wifiSerial.println("AT+CIPSEND=11\r\n");
-//      delay(500);
-//      wifiSerial.println("Blinking..."); 
-//      delay(500);
-//      
-//      digitalWrite(ledPin13, HIGH);   
-//      delay(1000);                      
-//      digitalWrite(ledPin13, LOW);  
-//      delay(1000); 
-//      digitalWrite(ledPin13, HIGH);   
-//      delay(1000);                       
-//      digitalWrite(ledPin13, LOW);  
-//      delay(1000); 
-//      digitalWrite(ledPin13, HIGH);  
-//      delay(1000);                    
-//      digitalWrite(ledPin13, LOW);
-//
-//      wifiSerial.println("AT+CIPSEND=8\r\n");
-//      delay(500);
-//      wifiSerial.println("Blinked!"); 
-//      delay(500);           
-//    }
-//    
-//    wifiSerialRead = "";
-//  }
-//}
+04$.配置WiFi模式；AT+CWMODE=3
+05$.连接路由器；AT+CWJAP="FAST_TianweiHUANG","ad&28%5ty93qe4f82#br" 
+06$.查询ESP8266设备的IP地址；AT+CIFSR
+07$.断开与路由器的连接；AT+CWQAP
+
+08$.服务器设定端口60000，启动监听；
+09$.ESP8266设备作为客户端，设定服务器IP地址192.168.1.102，端口60000，连接到服务器；
+    AT+CIPSTART="TCP","183.230.40.40",1811
+10$.向服务器发送数据；
+    AT+CIPSEND=4
+    >test
+11$.接收服务器的数据；
+12$.断开与服务器的连接；AT+CIPCLOSEMODE,AT+CIPCLOSE
+13$.随时查询ESP8266设备与路由器及与服务器的连接状态；AT+CIPSTATUS
+
+14$.使能透传模式；AT+CIPMODE=1
+15$.向服务器发送数据；AT+CIPSEND  
+16$.退出发送数据；“+++”
+17$.退出透传模式；AT+CIPMODE=0
+18$.(*禁止*)保存透传到Flash；AT+SAVETRANSLINK
+
+19$.建立TCP服务器；AT+CIPSERVER=1,333,
+20$.关闭TCP服务器；AT+CIPSERVER=0
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***  
+*/
