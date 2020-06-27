@@ -5,7 +5,7 @@ void setup(){
   Serial.begin(9600);
 }
 void loop(){
-if(Serial.available()){
+  if(Serial.available()){
     char val = Serial.read(); 
     if (val == 'y'){
       digitalWrite(11,HIGH);
@@ -20,7 +20,6 @@ if(Serial.available()){
       digitalWrite(11,LOW);
       digitalWrite(12,LOW);
       digitalWrite(13,LOW);
-    }
-    Serial.write(val);  
+    } 
   }
 }
