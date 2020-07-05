@@ -43,8 +43,9 @@ namespace TCP_Socket_Server_TEST_20200321
         public void Init()
         {
             //iPAddress = IPAddress.Parse("127.0.0.1");
-            iPAddress = IPAddress.Parse("127.0.0.1");
-            port = 8888;
+            //port = 8888;
+            iPAddress = IPAddress.Parse("192.168.43.245");
+            port = 60000;
 
             CreateSocket();
             BindAndListen();
