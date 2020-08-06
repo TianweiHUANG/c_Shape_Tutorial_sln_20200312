@@ -1,0 +1,46 @@
+https://www.aliyun.com/
+TianweiHUANG h******.
+
+Profile Name	myIoT_aliyun
+Profile Type	MQTT Broker
+
+Broker Address	a1dXYOF6uAR.iot-as-mqtt.cn-shanghai.aliyuncs.com
+Broker Port	1883
+Client ID	myClient_aliyun|securemode=3,signmethod=hmacsha1|
+
+User Name	myDevice_MQTT&a1dXYOF6uAR
+Password        F49F7F6D9402E0EC5C6CA6B5C60C87A2B6D9EB75
+
+productKey      a1dXYOF6uAR
+deviceName      myDevice_MQTT
+deviceSecret    24235cdc93aafc45514c38be2f291d28
+timestamp 
+clientId        myClient_aliyun
+method          hmacsha1
+
+自定义Topic
+发布 /a1dXYOF6uAR/myDevice_MQTT/user/myDevice
+订阅 /a1dXYOF6uAR/myDevice_MQTT/user/myAliyun
+
+属性上报
+发布 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/event/property/post
+订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/event/property/post_reply
+{
+  "id": "99",
+  "version": "1.0",
+  "params": {
+    "mySwitch": {
+      "value": 1
+    },
+    "myData": {
+      "value": 199
+    },
+    "myText": {
+      "value": "Hello myAliyun"
+    }
+  },
+  "method": "thing.event.property.post"
+}
+
+属性设置
+订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/service/property/set
