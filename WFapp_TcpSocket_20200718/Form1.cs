@@ -54,7 +54,7 @@ namespace WFapp_TcpSocket_20200718
 
         private void btn_Listen_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_Send_Click(object sender, EventArgs e)
