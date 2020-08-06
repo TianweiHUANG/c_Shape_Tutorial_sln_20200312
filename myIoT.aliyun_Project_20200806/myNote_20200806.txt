@@ -1,6 +1,12 @@
 https://www.aliyun.com/
 TianweiHUANG h******.
 
+{
+  "ProductKey": "a1dXYOF6uAR",
+  "DeviceName": "myDevice_MQTT",
+  "DeviceSecret": "24235cdc93aafc45514c38be2f291d28"
+}
+
 Profile Name	myIoT_aliyun
 Profile Type	MQTT Broker
 
@@ -18,13 +24,19 @@ timestamp
 clientId        myClient_aliyun
 method          hmacsha1
 
+/// ///  /// ///  /// ///  /// ///  /// ///  /// ///  /// ///  /// ///
+
 自定义Topic
-发布 /a1dXYOF6uAR/myDevice_MQTT/user/myDevice
 订阅 /a1dXYOF6uAR/myDevice_MQTT/user/myAliyun
+发布 /a1dXYOF6uAR/myDevice_MQTT/user/myDevice
+
+属性设置
+订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/service/property/set
 
 属性上报
 发布 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/event/property/post
 订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/event/property/post_reply
+
 {
   "id": "99",
   "version": "1.0",
@@ -41,6 +53,3 @@ method          hmacsha1
   },
   "method": "thing.event.property.post"
 }
-
-属性设置
-订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/service/property/set
