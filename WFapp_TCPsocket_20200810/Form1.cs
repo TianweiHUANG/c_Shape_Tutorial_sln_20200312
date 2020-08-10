@@ -120,8 +120,8 @@ namespace WFapp_TCPsocket_20200810
 
         private void btn_WFapp_TCPsocket_Client_Click(object sender, EventArgs e)
         {
-
+            Form2 form2 = new Form2();
+            form2.Show();
         }
-
     }
 }
