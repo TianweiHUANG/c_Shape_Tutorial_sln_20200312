@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WFapp_TcpSocket_20200718.Properties
+namespace WFapp_TCPsocket_20200810.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace WFapp_TcpSocket_20200718.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WFapp_TcpSocket_20200718.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WFapp_TCPsocket_20200810.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

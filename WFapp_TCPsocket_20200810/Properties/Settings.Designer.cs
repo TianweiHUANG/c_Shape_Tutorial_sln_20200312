@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WFapp_TcpSocket_20200718.Properties
+namespace WFapp_TCPsocket_20200810.Properties
 {
 
 

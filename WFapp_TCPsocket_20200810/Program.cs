@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WFapp_TcpSocket_20200718
+namespace WFapp_TCPsocket_20200810
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace WFapp_TcpSocket_20200718
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_TcpServer());
+            Application.Run(new Form1());
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("WFapp_TcpSocket_20200718")]
+[assembly: AssemblyTitle("WFapp_TCPsocket_20200810")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("WFapp_TcpSocket_20200718")]
+[assembly: AssemblyProduct("WFapp_TCPsocket_20200810")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("25435468-c302-426f-8d8e-2be752cb0cce")]
+[assembly: Guid("4921ba01-c016-4a81-a05b-7d328ac75dc8")]
 
 // 程序集的版本信息由下面四个值组成:
 //
