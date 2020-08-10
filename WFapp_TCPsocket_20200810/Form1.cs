@@ -51,26 +51,28 @@ namespace WFapp_TCPsocket_20200810
 
         }
 
-        private void list_OneLine_SelectedIndexChanged(object sender, EventArgs e)
+        private void list_Online_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
         Socket mySocket = null;
+        Dictionary<string, Socket> myDictSocket = new Dictionary<string, Socket>();
+
         private void btn_StartServer_Click(object sender, EventArgs e)
         {
             mySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPAddress myIPAddress = IPAddress.Parse(text_IPAddress.Text.Trim());
-            IPEndPoint myIPEndPoint = new IPEndPoint(myIPAddress, int.Parse(text_PORT.Text.Trim()));
+            IPAddress myIPAddress = IPAddress.Parse(this.text_IPAddress.Text.Trim());
+            IPEndPoint myIPEndPoint = new IPEndPoint(myIPAddress, int.Parse(this.text_PORT.Text.Trim()));
             try
             {
                 mySocket.Bind(myIPEndPoint);
             }
             catch (Exception)
             {
-                MessageBox.Show("StartServer Failed");
+                MessageBox.Show("The StartServer failed !");
             }
-            MessageBox.Show("StartServer Successfully");
+            MessageBox.Show("The StartServer successfully...");
             btn_StartServer.Enabled = false;
             mySocket.Listen(10);
 
@@ -84,8 +86,9 @@ namespace WFapp_TCPsocket_20200810
             while (true)
             {
                 Socket socket_myAccept = mySocket.Accept();
-                string str_myRemoteEndPoint = socket_myAccept.RemoteEndPoint.ToString();
-
+                string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
+                myDictSocket.Add(str_myRemote, socket_myAccept);
+               
                 Thread thr_myRcvMsg = new Thread(func_myRcvMsg);
                 thr_myRcvMsg.IsBackground = true;
                 thr_myRcvMsg.Start(socket_myAccept);
@@ -104,18 +107,33 @@ namespace WFapp_TCPsocket_20200810
 
                 if (Len_myRcvMsg == 0)
                 {
+                    string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
+                    myDictSocket.Remove(str_myRemote);
                     break;
                 }
                 else
                 {
-                    string str_myRcvMsg = Encoding.UTF8.GetString(arr_myRcvMsg);
+                    string str_myRcvMsg = Encoding.UTF8.GetString(arr_myRcvMsg, 0, Len_myRcvMsg);
                 }   
             }
         }
 
         private void btn_SendMsg_Click(object sender, EventArgs e)
         {
+            string str_mySendMsg = this.text_SendMsg.Text.Trim();
+            byte[] arr_mySendMsg = Encoding.UTF8.GetBytes(str_mySendMsg);
 
+            if (this.list_Online.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select an item in the list...");
+            }
+            else
+            {
+                foreach (string item in this.list_Online.SelectedItems)
+                {
+                    myDictSocket[item].Send(arr_mySendMsg);
+                }
+            }
         }
 
         private void btn_WFapp_TCPsocket_Client_Click(object sender, EventArgs e)

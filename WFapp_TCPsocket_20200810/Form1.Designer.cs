@@ -32,7 +32,7 @@
             this.text_SendMsg = new System.Windows.Forms.TextBox();
             this.text_IPAddress = new System.Windows.Forms.TextBox();
             this.text_PORT = new System.Windows.Forms.TextBox();
-            this.list_OneLine = new System.Windows.Forms.ListBox();
+            this.list_Online = new System.Windows.Forms.ListBox();
             this.btn_StartServer = new System.Windows.Forms.Button();
             this.btn_SendMsg = new System.Windows.Forms.Button();
             this.btn_WFapp_TCPsocket_Client = new System.Windows.Forms.Button();
@@ -75,15 +75,15 @@
             this.text_PORT.TabIndex = 3;
             this.text_PORT.TextChanged += new System.EventHandler(this.text_PORT_TextChanged);
             // 
-            // list_OneLine
+            // list_Online
             // 
-            this.list_OneLine.FormattingEnabled = true;
-            this.list_OneLine.ItemHeight = 12;
-            this.list_OneLine.Location = new System.Drawing.Point(336, 112);
-            this.list_OneLine.Name = "list_OneLine";
-            this.list_OneLine.Size = new System.Drawing.Size(264, 136);
-            this.list_OneLine.TabIndex = 4;
-            this.list_OneLine.SelectedIndexChanged += new System.EventHandler(this.list_OneLine_SelectedIndexChanged);
+            this.list_Online.FormattingEnabled = true;
+            this.list_Online.ItemHeight = 12;
+            this.list_Online.Location = new System.Drawing.Point(336, 112);
+            this.list_Online.Name = "list_Online";
+            this.list_Online.Size = new System.Drawing.Size(264, 136);
+            this.list_Online.TabIndex = 4;
+            this.list_Online.SelectedIndexChanged += new System.EventHandler(this.list_Online_SelectedIndexChanged);
             // 
             // btn_StartServer
             // 
@@ -145,7 +145,7 @@
             this.Controls.Add(this.btn_WFapp_TCPsocket_Client);
             this.Controls.Add(this.btn_SendMsg);
             this.Controls.Add(this.btn_StartServer);
-            this.Controls.Add(this.list_OneLine);
+            this.Controls.Add(this.list_Online);
             this.Controls.Add(this.text_PORT);
             this.Controls.Add(this.text_IPAddress);
             this.Controls.Add(this.text_SendMsg);
@@ -163,7 +163,7 @@
         private System.Windows.Forms.TextBox text_SendMsg;
         private System.Windows.Forms.TextBox text_IPAddress;
         private System.Windows.Forms.TextBox text_PORT;
-        private System.Windows.Forms.ListBox list_OneLine;
+        private System.Windows.Forms.ListBox list_Online;
         private System.Windows.Forms.Button btn_StartServer;
         private System.Windows.Forms.Button btn_SendMsg;
         private System.Windows.Forms.Button btn_WFapp_TCPsocket_Client;
