@@ -30,13 +30,13 @@
         {
             this.text_RcvMsg = new System.Windows.Forms.TextBox();
             this.text_SendMsg = new System.Windows.Forms.TextBox();
-            this.text_IPAdress = new System.Windows.Forms.TextBox();
+            this.text_IPAddress = new System.Windows.Forms.TextBox();
             this.text_PORT = new System.Windows.Forms.TextBox();
             this.list_OneLine = new System.Windows.Forms.ListBox();
             this.btn_StartServer = new System.Windows.Forms.Button();
             this.btn_SendMsg = new System.Windows.Forms.Button();
             this.btn_WFapp_TCPsocket_Client = new System.Windows.Forms.Button();
-            this.lab_IPAdress = new System.Windows.Forms.Label();
+            this.lab_IPAddress = new System.Windows.Forms.Label();
             this.lab_PORT = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -59,13 +59,13 @@
             this.text_SendMsg.TabIndex = 1;
             this.text_SendMsg.TextChanged += new System.EventHandler(this.text_SendMsg_TextChanged);
             // 
-            // text_IPAdress
+            // text_IPAddress
             // 
-            this.text_IPAdress.Location = new System.Drawing.Point(392, 32);
-            this.text_IPAdress.Name = "text_IPAdress";
-            this.text_IPAdress.Size = new System.Drawing.Size(208, 21);
-            this.text_IPAdress.TabIndex = 2;
-            this.text_IPAdress.TextChanged += new System.EventHandler(this.text_IPAdress_TextChanged);
+            this.text_IPAddress.Location = new System.Drawing.Point(392, 32);
+            this.text_IPAddress.Name = "text_IPAddress";
+            this.text_IPAddress.Size = new System.Drawing.Size(208, 21);
+            this.text_IPAddress.TabIndex = 2;
+            this.text_IPAddress.TextChanged += new System.EventHandler(this.text_IPAddress_TextChanged);
             // 
             // text_PORT
             // 
@@ -115,15 +115,15 @@
             this.btn_WFapp_TCPsocket_Client.UseVisualStyleBackColor = true;
             this.btn_WFapp_TCPsocket_Client.Click += new System.EventHandler(this.btn_WFapp_TCPsocket_Client_Click);
             // 
-            // lab_IPAdress
+            // lab_IPAddress
             // 
-            this.lab_IPAdress.AutoSize = true;
-            this.lab_IPAdress.Location = new System.Drawing.Point(336, 40);
-            this.lab_IPAdress.Name = "lab_IPAdress";
-            this.lab_IPAdress.Size = new System.Drawing.Size(53, 12);
-            this.lab_IPAdress.TabIndex = 8;
-            this.lab_IPAdress.Text = "IPAdress";
-            this.lab_IPAdress.Click += new System.EventHandler(this.lab_IPAdress_Click);
+            this.lab_IPAddress.AutoSize = true;
+            this.lab_IPAddress.Location = new System.Drawing.Point(336, 40);
+            this.lab_IPAddress.Name = "lab_IPAddress";
+            this.lab_IPAddress.Size = new System.Drawing.Size(53, 12);
+            this.lab_IPAddress.TabIndex = 8;
+            this.lab_IPAddress.Text = "IPAdress";
+            this.lab_IPAddress.Click += new System.EventHandler(this.lab_IPAddress_Click);
             // 
             // lab_PORT
             // 
@@ -141,13 +141,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
             this.Controls.Add(this.lab_PORT);
-            this.Controls.Add(this.lab_IPAdress);
+            this.Controls.Add(this.lab_IPAddress);
             this.Controls.Add(this.btn_WFapp_TCPsocket_Client);
             this.Controls.Add(this.btn_SendMsg);
             this.Controls.Add(this.btn_StartServer);
             this.Controls.Add(this.list_OneLine);
             this.Controls.Add(this.text_PORT);
-            this.Controls.Add(this.text_IPAdress);
+            this.Controls.Add(this.text_IPAddress);
             this.Controls.Add(this.text_SendMsg);
             this.Controls.Add(this.text_RcvMsg);
             this.Name = "Form1";
@@ -161,13 +161,13 @@
 
         private System.Windows.Forms.TextBox text_RcvMsg;
         private System.Windows.Forms.TextBox text_SendMsg;
-        private System.Windows.Forms.TextBox text_IPAdress;
+        private System.Windows.Forms.TextBox text_IPAddress;
         private System.Windows.Forms.TextBox text_PORT;
         private System.Windows.Forms.ListBox list_OneLine;
         private System.Windows.Forms.Button btn_StartServer;
         private System.Windows.Forms.Button btn_SendMsg;
         private System.Windows.Forms.Button btn_WFapp_TCPsocket_Client;
-        private System.Windows.Forms.Label lab_IPAdress;
+        private System.Windows.Forms.Label lab_IPAddress;
         private System.Windows.Forms.Label lab_PORT;
     }
 }
