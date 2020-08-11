@@ -17,49 +17,9 @@ namespace WFapp_TCPsocket_20200810
             InitializeComponent();
         }
 
-        private void text_RcvMsg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_SendMsg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_IPAddress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_IPAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_PORT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_PORT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_name_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_Name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Connect_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btn_SendMsg_Click(object sender, EventArgs e)

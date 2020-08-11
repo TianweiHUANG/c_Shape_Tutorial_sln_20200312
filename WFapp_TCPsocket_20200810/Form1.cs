@@ -8,52 +8,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+using System.Threading;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 
 namespace WFapp_TCPsocket_20200810
 {
+    delegate void delegate_list(string str, bool bl);
+    delegate void delegate_text(string str);
+    //delegate_list delegate_listOnline;
+    //delegate_text delegate_textRcvMsg;
+ 
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+            delegate_listOnline = display_listOnline;
+            delegate_textRcvMsg = display_textRcvMsg;
         }
 
-        private void text_RcvMsg_TextChanged(object sender, EventArgs e)
+        delegate_list delegate_listOnline;
+        delegate_text delegate_textRcvMsg; 
+        private void display_listOnline(string str, bool bl)
         {
+            if (bl)
+            {
+                list_Online.Items.Add(str);
+            }
+            else
+            {
+                list_Online.Items.Remove(str);
+            }
 
         }
-
-        private void text_SendMsg_TextChanged(object sender, EventArgs e)
+        private void display_textRcvMsg(string str)
         {
-
+            text_RcvMsg.AppendText(str);
         }
 
-        private void lab_IPAddress_Click(object sender, EventArgs e)
+        private void logWrite(string logPath, string logContent)
         {
-
-        }
-
-        private void text_IPAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_PORT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_PORT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void list_Online_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            //using (FileStream fs = new FileStream(logPath, FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(logPath, FileMode.Append, FileAccess.Write))
+            {
+                byte[] buffer = Encoding.UTF8.GetBytes(logContent);
+                fs.Write(buffer, 0, buffer.Length);
+            }
         }
 
         Socket mySocket = null;
@@ -88,6 +90,8 @@ namespace WFapp_TCPsocket_20200810
                 Socket socket_myAccept = mySocket.Accept();
                 string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
                 myDictSocket.Add(str_myRemote, socket_myAccept);
+
+                Invoke(delegate_listOnline, str_myRemote, true);
                
                 Thread thr_myRcvMsg = new Thread(func_myRcvMsg);
                 thr_myRcvMsg.IsBackground = true;
@@ -109,11 +113,20 @@ namespace WFapp_TCPsocket_20200810
                 {
                     string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
                     myDictSocket.Remove(str_myRemote);
+
+                    Invoke(delegate_listOnline, str_myRemote, false);
+
                     break;
                 }
                 else
                 {
+                    string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
                     string str_myRcvMsg = Encoding.UTF8.GetString(arr_myRcvMsg, 0, Len_myRcvMsg);
+
+                    string Content_myRcvMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " RcvMsg From{" + str_myRemote + "}:" + str_myRcvMsg + Environment.NewLine;
+                    Invoke(delegate_textRcvMsg, Content_myRcvMsg);
+                    logWrite(@"myServerLog.log", Content_myRcvMsg);
+                    logWrite(@"C:\Users\Administrator\Desktop\myServerLog.log", Content_myRcvMsg);
                 }   
             }
         }
@@ -132,6 +145,11 @@ namespace WFapp_TCPsocket_20200810
                 foreach (string item in this.list_Online.SelectedItems)
                 {
                     myDictSocket[item].Send(arr_mySendMsg);
+
+                    string Content_mySendMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " SendMsg To [" + item + "]:" + str_mySendMsg + Environment.NewLine;
+                    Invoke(delegate_textRcvMsg, Content_mySendMsg);
+                    logWrite(@"myServerLog.log", Content_mySendMsg);
+                    logWrite(@"C:\Users\Administrator\Desktop\myServerLog.log", Content_mySendMsg);                   
                 }
             }
         }

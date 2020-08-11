@@ -47,7 +47,6 @@
             this.text_SendMsg.Name = "text_SendMsg";
             this.text_SendMsg.Size = new System.Drawing.Size(280, 88);
             this.text_SendMsg.TabIndex = 3;
-            this.text_SendMsg.TextChanged += new System.EventHandler(this.text_SendMsg_TextChanged);
             // 
             // text_RcvMsg
             // 
@@ -57,7 +56,6 @@
             this.text_RcvMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.text_RcvMsg.Size = new System.Drawing.Size(280, 288);
             this.text_RcvMsg.TabIndex = 2;
-            this.text_RcvMsg.TextChanged += new System.EventHandler(this.text_RcvMsg_TextChanged);
             // 
             // lab_PORT
             // 
@@ -67,7 +65,6 @@
             this.lab_PORT.Size = new System.Drawing.Size(29, 12);
             this.lab_PORT.TabIndex = 15;
             this.lab_PORT.Text = "PORT";
-            this.lab_PORT.Click += new System.EventHandler(this.lab_PORT_Click);
             // 
             // lab_IPAddress
             // 
@@ -77,7 +74,6 @@
             this.lab_IPAddress.Size = new System.Drawing.Size(53, 12);
             this.lab_IPAddress.TabIndex = 14;
             this.lab_IPAddress.Text = "IPAdress";
-            this.lab_IPAddress.Click += new System.EventHandler(this.lab_IPAddress_Click);
             // 
             // btn_SendMsg
             // 
@@ -105,7 +101,6 @@
             this.text_PORT.Name = "text_PORT";
             this.text_PORT.Size = new System.Drawing.Size(208, 21);
             this.text_PORT.TabIndex = 11;
-            this.text_PORT.TextChanged += new System.EventHandler(this.text_PORT_TextChanged);
             // 
             // text_IPAddress
             // 
@@ -113,7 +108,6 @@
             this.text_IPAddress.Name = "text_IPAddress";
             this.text_IPAddress.Size = new System.Drawing.Size(208, 21);
             this.text_IPAddress.TabIndex = 10;
-            this.text_IPAddress.TextChanged += new System.EventHandler(this.text_IPAddress_TextChanged);
             // 
             // lab_name
             // 
@@ -123,7 +117,6 @@
             this.lab_name.Size = new System.Drawing.Size(29, 12);
             this.lab_name.TabIndex = 17;
             this.lab_name.Text = "Name";
-            this.lab_name.Click += new System.EventHandler(this.lab_name_Click);
             // 
             // text_Name
             // 
@@ -131,7 +124,6 @@
             this.text_Name.Name = "text_Name";
             this.text_Name.Size = new System.Drawing.Size(208, 21);
             this.text_Name.TabIndex = 16;
-            this.text_Name.TextChanged += new System.EventHandler(this.text_Name_TextChanged);
             // 
             // Form2
             // 

@@ -48,7 +48,6 @@
             this.text_RcvMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.text_RcvMsg.Size = new System.Drawing.Size(280, 288);
             this.text_RcvMsg.TabIndex = 0;
-            this.text_RcvMsg.TextChanged += new System.EventHandler(this.text_RcvMsg_TextChanged);
             // 
             // text_SendMsg
             // 
@@ -57,7 +56,6 @@
             this.text_SendMsg.Name = "text_SendMsg";
             this.text_SendMsg.Size = new System.Drawing.Size(280, 88);
             this.text_SendMsg.TabIndex = 1;
-            this.text_SendMsg.TextChanged += new System.EventHandler(this.text_SendMsg_TextChanged);
             // 
             // text_IPAddress
             // 
@@ -65,7 +63,6 @@
             this.text_IPAddress.Name = "text_IPAddress";
             this.text_IPAddress.Size = new System.Drawing.Size(208, 21);
             this.text_IPAddress.TabIndex = 2;
-            this.text_IPAddress.TextChanged += new System.EventHandler(this.text_IPAddress_TextChanged);
             // 
             // text_PORT
             // 
@@ -73,7 +70,6 @@
             this.text_PORT.Name = "text_PORT";
             this.text_PORT.Size = new System.Drawing.Size(208, 21);
             this.text_PORT.TabIndex = 3;
-            this.text_PORT.TextChanged += new System.EventHandler(this.text_PORT_TextChanged);
             // 
             // list_Online
             // 
@@ -83,7 +79,6 @@
             this.list_Online.Name = "list_Online";
             this.list_Online.Size = new System.Drawing.Size(264, 136);
             this.list_Online.TabIndex = 4;
-            this.list_Online.SelectedIndexChanged += new System.EventHandler(this.list_Online_SelectedIndexChanged);
             // 
             // btn_StartServer
             // 
@@ -123,7 +118,6 @@
             this.lab_IPAddress.Size = new System.Drawing.Size(53, 12);
             this.lab_IPAddress.TabIndex = 8;
             this.lab_IPAddress.Text = "IPAdress";
-            this.lab_IPAddress.Click += new System.EventHandler(this.lab_IPAddress_Click);
             // 
             // lab_PORT
             // 
@@ -133,7 +127,6 @@
             this.lab_PORT.Size = new System.Drawing.Size(29, 12);
             this.lab_PORT.TabIndex = 9;
             this.lab_PORT.Text = "PORT";
-            this.lab_PORT.Click += new System.EventHandler(this.lab_PORT_Click);
             // 
             // Form1
             // 
