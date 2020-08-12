@@ -77,6 +77,7 @@
             this.list_Online.ItemHeight = 12;
             this.list_Online.Location = new System.Drawing.Point(336, 112);
             this.list_Online.Name = "list_Online";
+            this.list_Online.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.list_Online.Size = new System.Drawing.Size(264, 136);
             this.list_Online.TabIndex = 4;
             // 

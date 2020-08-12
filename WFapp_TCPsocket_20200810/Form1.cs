@@ -35,17 +35,17 @@ namespace WFapp_TCPsocket_20200810
         {
             if (bl)
             {
-                list_Online.Items.Add(str);
+                this.list_Online.Items.Add(str);
             }
             else
             {
-                list_Online.Items.Remove(str);
+                this.list_Online.Items.Remove(str);
             }
 
         }
         private void display_textRcvMsg(string str)
         {
-            text_RcvMsg.AppendText(str);
+            this.text_RcvMsg.AppendText(str);
         }
 
         private void logWrite(string logPath, string logContent)
@@ -123,7 +123,7 @@ namespace WFapp_TCPsocket_20200810
                     string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
                     string str_myRcvMsg = Encoding.UTF8.GetString(arr_myRcvMsg, 0, Len_myRcvMsg);
 
-                    string Content_myRcvMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " RcvMsg From{" + str_myRemote + "}:" + str_myRcvMsg + Environment.NewLine;
+                    string Content_myRcvMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " RcvMsg From[" + str_myRemote + "]:" + str_myRcvMsg + Environment.NewLine;
                     Invoke(delegate_textRcvMsg, Content_myRcvMsg);
                     logWrite(@"myServerLog.log", Content_myRcvMsg);
                     logWrite(@"C:\Users\Administrator\Desktop\myServerLog.log", Content_myRcvMsg);
