@@ -107,7 +107,20 @@ namespace WFapp_TCPsocket_20200810
             {
                 byte[] arr_myRcvMsg = new byte[1024 * 1024 * 2];
                 int Len_myRcvMsg = -1;
-                Len_myRcvMsg = socket_myAccept.Receive(arr_myRcvMsg);
+                //Len_myRcvMsg = socket_myAccept.Receive(arr_myRcvMsg);
+                try
+                {
+                    Len_myRcvMsg = socket_myAccept.Receive(arr_myRcvMsg);
+                }
+                catch (Exception)
+                {
+                    string str_myRemote = socket_myAccept.RemoteEndPoint.ToString();
+                    myDictSocket.Remove(str_myRemote);
+
+                    Invoke(delegate_listOnline, str_myRemote, false);
+
+                    break;
+                }
 
                 if (Len_myRcvMsg == 0)
                 {

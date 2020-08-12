@@ -22,6 +22,16 @@ namespace WFapp_TCPsocket_20200810
             InitializeComponent();
         }
 
+        private void logWrite(string logPath, string logContent)
+        {
+            //using (FileStream fs = new FileStream(logPath, FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(logPath, FileMode.Append, FileAccess.Write))
+            {
+                byte[] buffer = Encoding.UTF8.GetBytes(logContent);
+                fs.Write(buffer, 0, buffer.Length);
+            }
+        }
+
         Socket myClientSocket = null;
         Thread thr_myClientRcvMsg = null;
         private bool IsRunning_From2 = true;
@@ -76,18 +86,25 @@ namespace WFapp_TCPsocket_20200810
                 else
                 {
                     string str_myClientRcvMsg = Encoding.UTF8.GetString(arr_myClientRcvMsg, 0, len_myClientRcvMsg);
-                    string Content_myClientRcvMsg = "RcvMsg From Server: " + str_myClientRcvMsg + Environment.NewLine;
+                    string Content_myClientRcvMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " RcvMsg From Server: " + str_myClientRcvMsg + Environment.NewLine;
                     Invoke(new Action(() => this.text_RcvMsg.AppendText(Content_myClientRcvMsg)));
+
+                    logWrite(@"myClientLog.log", Content_myClientRcvMsg);
+                    logWrite(@"C:\Users\Administrator\Desktop\myClientLog.log", Content_myClientRcvMsg);
                 }
             }
         }
 
         private void btn_SendMsg_Click(object sender, EventArgs e)
         {
-            string Content_myClientSendMsg = "<" + this.text_Name.Text.Trim() + "> " + this.text_SendMsg.Text.Trim();
-            byte[] arr_myClientSendMsg = Encoding.UTF8.GetBytes(Content_myClientSendMsg);
+            string str_myClientSendMsg = "<" + this.text_Name.Text.Trim() + "> " + this.text_SendMsg.Text.Trim();
+            byte[] arr_myClientSendMsg = Encoding.UTF8.GetBytes(str_myClientSendMsg);
             myClientSocket.Send(arr_myClientSendMsg);
-            Invoke(new Action(() => this.text_RcvMsg.AppendText("SendMsg To  Server: " + this.text_SendMsg.Text.Trim() + Environment.NewLine)));
+            string Content_myClientSendMsg = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " SendMsg To  Server: " + this.text_SendMsg.Text.Trim() + Environment.NewLine;
+            Invoke(new Action(() => this.text_RcvMsg.AppendText(Content_myClientSendMsg)));
+
+            logWrite(@"myClientLog.log", Content_myClientSendMsg);
+            logWrite(@"C:\Users\Administrator\Desktop\myClientLog.log", Content_myClientSendMsg);
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
