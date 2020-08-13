@@ -24,11 +24,24 @@ namespace WFapp_myDATABASE_20200815
             using (var myDataBase_connection = new SQLiteConnection("data source=myDataBase.db"))
             {
                 myDataBase_connection.Open();
+                // SQL=>>> select * from myTable
                 var command = new SQLiteCommand("select * from myTable", myDataBase_connection);
                 var adapter = new SQLiteDataAdapter(command);
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 var table = dataSet.Tables[0];
+            }
+        }
+
+        private void timer_myTable_Tick(object sender, EventArgs e)
+        {
+            //using (var myDataBase_connection = new SQLiteConnection(@"data source=C:\Users\Administrator\Desktop\myDataBase.db"))
+            using (var myDataBase_connection = new SQLiteConnection("data source=myDataBase.db"))
+            {
+                var adapter = new SQLiteDataAdapter("select * from myTable", myDataBase_connection);
+                var dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                dataGridView_myTable.DataSource = dataTable;
             }
         }
 
@@ -38,6 +51,7 @@ namespace WFapp_myDATABASE_20200815
             using (var myDataBase_connection = new SQLiteConnection("data source=myDataBase.db"))
             {
                 myDataBase_connection.Open();
+                // SQL=>>> insert into myTable values(3,"张三",22,"陕西省西安市长安区","看书,听音乐")
                 var command = new SQLiteCommand("insert into myTable " + "values(3,\"张三\",22,\"陕西省西安市长安区\",\"看书,听音乐\")", myDataBase_connection);
                 var result = command.ExecuteNonQuery();
             }
@@ -49,6 +63,7 @@ namespace WFapp_myDATABASE_20200815
             using (var myDataBase_connection = new SQLiteConnection("data source=myDataBase.db"))
             {
                 myDataBase_connection.Open();
+                // SQL=>>> delete from myTable where Id = 3
                 var command = new SQLiteCommand("delete from myTable where Id = 3", myDataBase_connection);
                 var result = command.ExecuteNonQuery();
             }
@@ -60,8 +75,8 @@ namespace WFapp_myDATABASE_20200815
             using (var myDataBase_connection = new SQLiteConnection("data source=myDataBase.db"))
             {
                 myDataBase_connection.Open();
-                var command = new SQLiteCommand("update myTable set Name = '王五' where Id = 3",
-                    myDataBase_connection);
+                // SQL=>>> update myTable set Name = '王五' where Id = 3
+                var command = new SQLiteCommand("update myTable set Name = '王五' where Id = 3", myDataBase_connection);
                 var result = command.ExecuteNonQuery();
             }
         }
