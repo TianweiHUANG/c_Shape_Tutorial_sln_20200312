@@ -27,8 +27,8 @@ method          hmacsha1
 /// ///  /// ///  /// ///  /// ///  /// ///  /// ///  /// ///  /// ///
 
 自定义Topic
-订阅 /a1dXYOF6uAR/myDevice_MQTT/user/myAliyun
 发布 /a1dXYOF6uAR/myDevice_MQTT/user/myDevice
+订阅 /a1dXYOF6uAR/myDevice_MQTT/user/myAliyun
 
 属性设置
 订阅 /sys/a1dXYOF6uAR/myDevice_MQTT/thing/service/property/set
