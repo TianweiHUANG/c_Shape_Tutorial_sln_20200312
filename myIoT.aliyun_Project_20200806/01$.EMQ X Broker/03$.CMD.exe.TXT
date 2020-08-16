@@ -1,0 +1,6 @@
+d:
+cd emqttd-windows7-v2.3.11\emqttd\bin
+
+emqttd console/emqttd start/emqttd stop/emqttd restart
+
+http://127.0.0.1:18083/  
