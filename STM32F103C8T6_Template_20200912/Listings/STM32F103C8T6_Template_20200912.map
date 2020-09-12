@@ -9,6 +9,7 @@ Section Cross References
     main.o(i.main) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
     main.o(i.main) refers to delay.o(i.Delay) for Delay
     main.o(i.main) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    main.o(i.main) refers to delay.o(i.Delay_ms) for Delay_ms
     led.o(i.LED_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
     led.o(i.LED_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
     led.o(i.LED_Init) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
@@ -147,7 +148,6 @@ Removing Unused input sections from the image.
     Removing delay.o(.rev16_text), (4 bytes).
     Removing delay.o(.revsh_text), (4 bytes).
     Removing delay.o(.rrx_text), (6 bytes).
-    Removing delay.o(i.Delay_ms), (72 bytes).
     Removing delay.o(i.Delay_us), (72 bytes).
     Removing misc.o(.rev16_text), (4 bytes).
     Removing misc.o(.revsh_text), (4 bytes).
@@ -214,7 +214,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.rrx_text), (6 bytes).
     Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
 
-75 unused section(s) (total 2242 bytes) removed from the image.
+74 unused section(s) (total 2170 bytes) removed from the image.
 
 ==============================================================================
 
@@ -226,12 +226,12 @@ Image Symbol Table
 
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
@@ -242,12 +242,12 @@ Image Symbol Table
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
@@ -255,16 +255,16 @@ Image Symbol Table
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
@@ -344,18 +344,19 @@ Image Symbol Table
     .text                                    0x08000242   Section        0  indicate_semi.o(.text)
     i.Delay                                  0x08000242   Section        0  delay.o(i.Delay)
     i.Delay_Init                             0x08000260   Section        0  delay.o(i.Delay_Init)
-    i.GPIO_Init                              0x080002a4   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
-    i.GPIO_ResetBits                         0x080003ba   Section        0  stm32f10x_gpio.o(i.GPIO_ResetBits)
-    i.GPIO_SetBits                           0x080003be   Section        0  stm32f10x_gpio.o(i.GPIO_SetBits)
-    i.LED_Init                               0x080003c4   Section        0  led.o(i.LED_Init)
-    i.RCC_APB2PeriphClockCmd                 0x080003fc   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.SetSysClock                            0x0800041c   Section        0  system_stm32f10x.o(i.SetSysClock)
-    SetSysClock                              0x0800041d   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
-    i.SetSysClockTo72                        0x08000424   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x08000425   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
-    i.SysTick_CLKSourceConfig                0x08000504   Section        0  misc.o(i.SysTick_CLKSourceConfig)
-    i.SystemInit                             0x0800052c   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.main                                   0x0800058c   Section        0  main.o(i.main)
+    i.Delay_ms                               0x080002a4   Section        0  delay.o(i.Delay_ms)
+    i.GPIO_Init                              0x080002ec   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
+    i.GPIO_ResetBits                         0x08000402   Section        0  stm32f10x_gpio.o(i.GPIO_ResetBits)
+    i.GPIO_SetBits                           0x08000406   Section        0  stm32f10x_gpio.o(i.GPIO_SetBits)
+    i.LED_Init                               0x0800040c   Section        0  led.o(i.LED_Init)
+    i.RCC_APB2PeriphClockCmd                 0x08000444   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.SetSysClock                            0x08000464   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x08000465   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x0800046c   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x0800046d   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SysTick_CLKSourceConfig                0x0800054c   Section        0  misc.o(i.SysTick_CLKSourceConfig)
+    i.SystemInit                             0x08000574   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.main                                   0x080005d4   Section        0  main.o(i.main)
     .data                                    0x20000000   Section        4  delay.o(.data)
     D_us                                     0x20000000   Data           1  delay.o(.data)
     D_ms                                     0x20000002   Data           2  delay.o(.data)
@@ -520,16 +521,17 @@ Image Symbol Table
     Delay                                    0x08000243   Thumb Code    30  delay.o(i.Delay)
     __semihosting_library_function           0x08000243   Thumb Code     0  indicate_semi.o(.text)
     Delay_Init                               0x08000261   Thumb Code    50  delay.o(i.Delay_Init)
-    GPIO_Init                                0x080002a5   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
-    GPIO_ResetBits                           0x080003bb   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_ResetBits)
-    GPIO_SetBits                             0x080003bf   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_SetBits)
-    LED_Init                                 0x080003c5   Thumb Code    50  led.o(i.LED_Init)
-    RCC_APB2PeriphClockCmd                   0x080003fd   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    SysTick_CLKSourceConfig                  0x08000505   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
-    SystemInit                               0x0800052d   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    main                                     0x0800058d   Thumb Code    44  main.o(i.main)
-    Region$$Table$$Base                      0x080005bc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080005dc   Number         0  anon$$obj.o(Region$$Table)
+    Delay_ms                                 0x080002a5   Thumb Code    66  delay.o(i.Delay_ms)
+    GPIO_Init                                0x080002ed   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
+    GPIO_ResetBits                           0x08000403   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_ResetBits)
+    GPIO_SetBits                             0x08000407   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_SetBits)
+    LED_Init                                 0x0800040d   Thumb Code    50  led.o(i.LED_Init)
+    RCC_APB2PeriphClockCmd                   0x08000445   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    SysTick_CLKSourceConfig                  0x0800054d   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
+    SystemInit                               0x08000575   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    main                                     0x080005d5   Thumb Code    46  main.o(i.main)
+    Region$$Table$$Base                      0x08000608   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000628   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000004   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000008   Data          16  system_stm32f10x.o(.data)
     __libspace_start                         0x20000018   Data          96  libspace.o(.bss)
@@ -543,9 +545,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000005f4, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000640, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000005dc, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000628, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -608,26 +610,27 @@ Memory Map of the image
     0x08000242   0x08000242   0x00000000   Code   RO          685    .text               c_w.l(indicate_semi.o)
     0x08000242   0x08000242   0x0000001e   Code   RO           99    i.Delay             delay.o
     0x08000260   0x08000260   0x00000044   Code   RO          100    i.Delay_Init        delay.o
-    0x080002a4   0x080002a4   0x00000116   Code   RO          197    i.GPIO_Init         stm32f10x_gpio.o
-    0x080003ba   0x080003ba   0x00000004   Code   RO          204    i.GPIO_ResetBits    stm32f10x_gpio.o
-    0x080003be   0x080003be   0x00000004   Code   RO          205    i.GPIO_SetBits      stm32f10x_gpio.o
-    0x080003c2   0x080003c2   0x00000002   PAD
-    0x080003c4   0x080003c4   0x00000038   Code   RO           75    i.LED_Init          led.o
-    0x080003fc   0x080003fc   0x00000020   Code   RO          321    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x0800041c   0x0800041c   0x00000008   Code   RO          536    i.SetSysClock       system_stm32f10x.o
-    0x08000424   0x08000424   0x000000e0   Code   RO          537    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000504   0x08000504   0x00000028   Code   RO          147    i.SysTick_CLKSourceConfig  misc.o
-    0x0800052c   0x0800052c   0x00000060   Code   RO          539    i.SystemInit        system_stm32f10x.o
-    0x0800058c   0x0800058c   0x00000030   Code   RO            4    i.main              main.o
-    0x080005bc   0x080005bc   0x00000020   Data   RO          738    Region$$Table       anon$$obj.o
+    0x080002a4   0x080002a4   0x00000048   Code   RO          101    i.Delay_ms          delay.o
+    0x080002ec   0x080002ec   0x00000116   Code   RO          197    i.GPIO_Init         stm32f10x_gpio.o
+    0x08000402   0x08000402   0x00000004   Code   RO          204    i.GPIO_ResetBits    stm32f10x_gpio.o
+    0x08000406   0x08000406   0x00000004   Code   RO          205    i.GPIO_SetBits      stm32f10x_gpio.o
+    0x0800040a   0x0800040a   0x00000002   PAD
+    0x0800040c   0x0800040c   0x00000038   Code   RO           75    i.LED_Init          led.o
+    0x08000444   0x08000444   0x00000020   Code   RO          321    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x08000464   0x08000464   0x00000008   Code   RO          536    i.SetSysClock       system_stm32f10x.o
+    0x0800046c   0x0800046c   0x000000e0   Code   RO          537    i.SetSysClockTo72   system_stm32f10x.o
+    0x0800054c   0x0800054c   0x00000028   Code   RO          147    i.SysTick_CLKSourceConfig  misc.o
+    0x08000574   0x08000574   0x00000060   Code   RO          539    i.SystemInit        system_stm32f10x.o
+    0x080005d4   0x080005d4   0x00000034   Code   RO            4    i.main              main.o
+    0x08000608   0x08000608   0x00000020   Data   RO          738    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080005dc, Size: 0x00000678, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000628, Size: 0x00000678, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080005dc   0x00000004   Data   RW          103    .data               delay.o
-    0x20000004   0x080005e0   0x00000014   Data   RW          540    .data               system_stm32f10x.o
+    0x20000000   0x08000628   0x00000004   Data   RW          103    .data               delay.o
+    0x20000004   0x0800062c   0x00000014   Data   RW          540    .data               system_stm32f10x.o
     0x20000018        -       0x00000060   Zero   RW          612    .bss                c_w.l(libspace.o)
     0x20000078        -       0x00000200   Zero   RW          527    HEAP                startup_stm32f10x_md.o
     0x20000278        -       0x00000400   Zero   RW          526    STACK               startup_stm32f10x_md.o
@@ -640,9 +643,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        98         18          0          4          0       1397   delay.o
+       170         24          0          4          0       1992   delay.o
         56          6          0          0          0        555   led.o
-        48          4          0          0          0     215579   main.o
+        52          6          0          0          0     215579   main.o
         40          0          0          0          0        598   misc.o
         64         26        236          0       1536        912   startup_stm32f10x_md.o
        286          0          0          0          0       3408   stm32f10x_gpio.o
@@ -650,7 +653,7 @@ Image component sizes
        328         28          0         20          0       2785   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-       954         88        268         24       1536     225883   Object Totals
+      1030         96        268         24       1536     226478   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          0          0          0          0   (incl. Padding)
 
@@ -699,15 +702,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1232        104        268         24       1632     225839   Grand Totals
-      1232        104        268         24       1632     225839   ELF Image Totals
-      1232        104        268         24          0          0   ROM Totals
+      1308        112        268         24       1632     226382   Grand Totals
+      1308        112        268         24       1632     226382   ELF Image Totals
+      1308        112        268         24          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1500 (   1.46kB)
+    Total RO  Size (Code + RO Data)                 1576 (   1.54kB)
     Total RW  Size (RW Data + ZI Data)              1656 (   1.62kB)
-    Total ROM Size (Code + RO Data + RW Data)       1524 (   1.49kB)
+    Total ROM Size (Code + RO Data + RW Data)       1600 (   1.56kB)
 
 ==============================================================================
 
