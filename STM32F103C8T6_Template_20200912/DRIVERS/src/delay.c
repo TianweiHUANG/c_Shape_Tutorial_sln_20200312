@@ -1,8 +1,8 @@
 #include "stm32f10x.h"
 //#include "stdint.h"
 
-static uint8_t   D_us=0; //微妙系数
-static uint16_t  D_ms=0; //毫秒系数
+static uint8_t   D_us=0;      //微妙系数
+static uint16_t  D_ms=0;      //毫秒系数
 
 void Delay(uint16_t timers)
 {   

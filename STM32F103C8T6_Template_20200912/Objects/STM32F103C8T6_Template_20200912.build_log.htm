@@ -30,13 +30,15 @@ Rebuild target 'Target 1'
 compiling main.c...
 compiling led.c...
 compiling delay.c...
+compiling usart.c...
 compiling misc.c...
 compiling stm32f10x_gpio.c...
 compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
 assembling startup_stm32f10x_md.s...
 compiling system_stm32f10x.c...
 linking...
-Program Size: Code=1308 RO-data=268 RW-data=24 ZI-data=1632  
+Program Size: Code=1836 RO-data=268 RW-data=48 ZI-data=1024  
 ".\Objects\STM32F103C8T6_Template_20200912.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -55,6 +57,7 @@ Package Vendor: Keil
    * Component: Framework Version: 3.5.1
    * Component: GPIO Version: 3.5.0
    * Component: RCC Version: 3.5.0
+   * Component: USART Version: 3.5.0
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103C8
@@ -87,7 +90,11 @@ Package Vendor: Keil
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
-Build Time Elapsed:  00:00:06
+
+   * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>
