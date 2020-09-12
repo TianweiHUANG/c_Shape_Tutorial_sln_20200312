@@ -10,10 +10,10 @@ int main(void)
 	while(1)
 	{
 		GPIO_ResetBits(GPIOC,GPIO_Pin_13);
-		//Delay(100);   
-		Delay_ms(500);
+		Delay(100);   
+		//Delay_ms(500);
 		GPIO_SetBits(GPIOC,GPIO_Pin_13);  
-		//Delay(100);
-		Delay_ms(500);
+		Delay(100);
+		//Delay_ms(500);
 	}
 }
