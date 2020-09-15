@@ -4,7 +4,7 @@
 #include "stm32f10x.h"
 //#include "stdint.h"
 
-void Delay(uint16_t timers);
+void Delay(uint16_t Delay_T);
 
 void Delay_Init(void);
 void Delay_us(uint32_t nus);
