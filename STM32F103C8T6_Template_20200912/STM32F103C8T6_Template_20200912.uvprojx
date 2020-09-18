@@ -408,6 +408,11 @@
               <FileType>1</FileType>
               <FilePath>.\DRIVERS\src\usart.c</FilePath>
             </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVERS\src\key.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
