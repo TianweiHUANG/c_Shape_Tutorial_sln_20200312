@@ -33,7 +33,7 @@ int main(void)
 	{
 		if(USER_KEY == 0) 
 			{
-         Delay_ms(20);   //按键消抖，一般延时10-20ms
+         Delay_ms(20);    //按键消抖，延时时间一般为10-20ms
          if(USER_KEY == 0) GPIO_ResetBits(GPIOC,GPIO_Pin_13);
       }
     else GPIO_SetBits(GPIOC,GPIO_Pin_13);

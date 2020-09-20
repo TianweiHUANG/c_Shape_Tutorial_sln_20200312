@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32F103C8T6_Template_20200912', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (.\USER\main.c)(0x5F64CAA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\DRIVERS\inc-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc"-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\USER\main.c)(0x5F66C25E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\DRIVERS\inc-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc"-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (.\RTE\_Target_1\RTE_Components.h)(0x5F5CCE2B)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8ED122)
@@ -15,7 +15,7 @@ I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdP
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x52F9EB20)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
 I (.\DRIVERS\inc\led.h)(0x5F607212)
-I (.\DRIVERS\inc\key.h)(0x5F64C8C8)
+I (.\DRIVERS\inc\key.h)(0x5F66C40C)
 I (.\DRIVERS\inc\delay.h)(0x5F606783)
 I (.\DRIVERS\inc\usart.h)(0x5F6055C6)
 I (F:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E53505C)
@@ -62,7 +62,7 @@ I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdP
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x52F9EB20)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc\misc.h)(0x52F9EB20)
 I (F:\Program Files (x86)\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E53505C)
-F (.\DRIVERS\src\key.c)(0x5F64C8C9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\DRIVERS\inc-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc"-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+F (.\DRIVERS\src\key.c)(0x5F66C44A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\DRIVERS\inc-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc"-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825386C)
 I (.\RTE\_Target_1\RTE_Components.h)(0x5F5CCE2B)
 I (F:\Program Files (x86)\Keil_v5\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8ED122)
